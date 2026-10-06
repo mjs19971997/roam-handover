@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper given under preferred-citation."
+title: "ROAM: outcome-memory and path-overlap handover decision layer for dense 5G networks"
+type: software
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/mjs19971997/roam-handover"
+authors:
+  - family-names: "Jalili Sanjarani"
+    given-names: "Mostafa"
+    affiliation: "Islamic Azad University, Sabzevar"
+  - family-names: "Elmi Sola"
+    given-names: "Yasser"
+    email: "Yasser.Elmi@iau.ac.ir"
+    affiliation: "Islamic Azad University, Sabzevar"
+  - family-names: "Hasanpour"
+    given-names: "Hesam"
+    affiliation: "Islamic Azad University, Sabzevar"
+  - family-names: "Neghabi"
+    given-names: "Ali Akbar"
+    affiliation: "Islamic Azad University, Sabzevar"
+preferred-citation:
+  type: unpublished
+  title: "ROAM: Mitigating Unnecessary Handovers in Dense 5G Networks With an Outcome Memory and a Path-Overlap Margin"
+  year: 2026
+  notes: "Under review"
+  authors:
+    - family-names: "Jalili Sanjarani"
+      given-names: "Mostafa"
+    - family-names: "Elmi Sola"
+      given-names: "Yasser"
+    - family-names: "Hasanpour"
+      given-names: "Hesam"
+    - family-names: "Neghabi"
+      given-names: "Ali Akbar"
+references:
+  - type: article
+    title: "Handover reduction in 5G mobile networks using ensemble learning method"
+    journal: "Scientific Reports"
+    year: 2026
+    doi: "10.1038/s41598-026-73269-1"
+    authors:
+      - family-names: "Jalili Sanjarani"
+        given-names: "Mostafa"
+      - family-names: "Elmi Sola"
+        given-names: "Yasser"
+      - family-names: "Hasanpour"
+        given-names: "Hesam"
+      - family-names: "Neghabi"
+        given-names: "Ali Akbar"

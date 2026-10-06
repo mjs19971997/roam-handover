@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
+
+# third-party drive-test traces are not redistributed (see data/drive_tests/README.md)
+data/drive_tests/*.csv
+
+# run logs
+results/*.log

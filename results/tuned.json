@@ -1,0 +1,91 @@
+{
+ "A3": {
+  "cls": "A3",
+  "kw": {
+   "hyst": 4,
+   "ttt": 0.1
+  },
+  "met_budget": true,
+  "val_UHO_pm": 2.734583333333333,
+  "val_fail_pm": 0.4716666666666667
+ },
+ "Cluster-RL": {
+  "cls": "ClusterRL",
+  "kw": {
+   "c_ho": 2,
+   "lr": 0.2,
+   "eps": 0.01
+  },
+  "met_budget": true,
+  "val_UHO_pm": 4.345416666666667,
+  "val_fail_pm": 0.4379166666666666
+ },
+ "MP-Screen": {
+  "cls": "MPScreen",
+  "kw": {
+   "hyst": 1,
+   "ttt": 0.1,
+   "angle": 60
+  },
+  "met_budget": false,
+  "val_UHO_pm": 1.2075,
+  "val_fail_pm": 0.7491666666666666
+ },
+ "PBPHS": {
+  "cls": "PBPHS",
+  "kw": {
+   "m": 2,
+   "bias": 6
+  },
+  "met_budget": true,
+  "val_UHO_pm": 11.8375,
+  "val_fail_pm": 0.021249999999999977
+ },
+ "Proposed": {
+  "cls": "ROAM",
+  "kw": {
+   "h0": 2,
+   "ttt": 0.3,
+   "eta_H": 14,
+   "eta_L": 8,
+   "eta_A": 8,
+   "m_cap": 9
+  },
+  "met_budget": true,
+  "val_UHO_pm": 1.2125,
+  "val_fail_pm": 0.395
+ },
+ "ST-CMAB": {
+  "cls": "STCMAB",
+  "kw": {
+   "hyst": 4,
+   "ttt": 0.1,
+   "cu": 0.2
+  },
+  "met_budget": true,
+  "val_UHO_pm": 2.6991666666666663,
+  "val_fail_pm": 0.47
+ },
+ "ToS-Skip": {
+  "cls": "ToSSkip",
+  "kw": {
+   "hyst": 1,
+   "ttt": 0.1,
+   "tau": 2
+  },
+  "met_budget": false,
+  "val_UHO_pm": 2.5666666666666664,
+  "val_fail_pm": 0.4954166666666666
+ },
+ "Traj-Pred": {
+  "cls": "TrajPred",
+  "kw": {
+   "T_h": 5,
+   "g": 4
+  },
+  "met_budget": true,
+  "val_UHO_pm": 2.3833333333333333,
+  "val_fail_pm": 0.45833333333333337
+ },
+ "_budget_fail_pm": 0.4791666666666667
+}
