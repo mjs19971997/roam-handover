@@ -2049,7 +2049,7 @@
      "diff": 0.08805555418000001,
      "diff_ci95": 0.03565283552269421,
      "rel_change_pct": 185.3801124240074,
-     "wilcoxon_p": 7.62939453125e-06,
+     "wilcoxon_p": 1.1444091796875e-05,
      "nonzero_pairs": 19
     },
     "ROAM_vs_ROAM_overlap_uho_pm": {
@@ -2069,7 +2069,7 @@
      "diff": -0.0016666677299999974,
      "diff_ci95": 0.012051508924146751,
      "rel_change_pct": -1.2145756727302435,
-     "wilcoxon_p": 0.8672027587890625,
+     "wilcoxon_p": 0.9460792541503906,
      "nonzero_pairs": 19
     },
     "ROAM_vs_ROAM_history_uho_pm": {
@@ -2089,7 +2089,7 @@
      "diff": -0.006388889300000001,
      "diff_ci95": 0.01607820918107024,
      "rel_change_pct": -4.500978780473425,
-     "wilcoxon_p": 0.5750045776367188,
+     "wilcoxon_p": 0.5734672546386719,
      "nonzero_pairs": 19
     }
    },
@@ -2367,7 +2367,7 @@
      "diff": 0.0833333325,
      "diff_ci95": 0.0636376618382449,
      "rel_change_pct": 12.88659778270804,
-     "wilcoxon_p": 0.016460418701171875,
+     "wilcoxon_p": 0.016429901123046875,
      "nonzero_pairs": 19
     },
     "fail_pm": {
@@ -2397,7 +2397,7 @@
      "diff": 0.003888888879999999,
      "diff_ci95": 0.00856543170198597,
      "rel_change_pct": 22.580645099479707,
-     "wilcoxon_p": 0.34912109375,
+     "wilcoxon_p": 0.375,
      "nonzero_pairs": 12
     },
     "ROAM_vs_ROAM_history_uho_pm": {
@@ -2417,7 +2417,7 @@
      "diff": 0.00666666668,
      "diff_ci95": 0.006290096635841115,
      "rel_change_pct": 46.1538462923077,
-     "wilcoxon_p": 0.01953125,
+     "wilcoxon_p": 0.03564453125,
      "nonzero_pairs": 12
     }
    },
@@ -2571,7 +2571,7 @@
      "diff": 0.02499999981,
      "diff_ci95": 0.02064914048218653,
      "rel_change_pct": 88.23529286574396,
-     "wilcoxon_p": 0.0390625,
+     "wilcoxon_p": 0.0234375,
      "nonzero_pairs": 9
     }
    },

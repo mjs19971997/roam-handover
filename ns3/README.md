@@ -153,8 +153,10 @@ patched; the runs are left out, and the reports state on how many runs each numb
 Rates per UE-minute; ROAM against tuned A3.
 
 * Urban grid, 120 pairs: unnecessary handovers 2.220 -> 1.390 (-37.4 %, p = 1.5e-27);
-  seeds 11-20 only: -38.8 %. Failures 0.031 -> 0.097 (p = 1.9e-21), almost all of them late
-  handover commands. Handovers 6.220 -> 4.565. Delivery ratio unchanged.
+  seeds 11-20 only: -38.8 %. Failures 0.031 -> 0.098 (p = 1.9e-21), almost all of them late
+  handover commands. Handovers 6.220 -> 4.565. Delivery ratio unchanged. (The ROAM failure rate
+  is 468 failures in 4800 UE-minutes, exactly 0.0975; the paper rounds it to 0.098, while
+  `report_study.txt` prints the binary value of the mean as 0.097.)
 * Urban grid at equal failure rate (S3): the selected ROAM has 1.371 unnecessary handovers at
   0.097 failures; the best A3 configuration whose failure rate does not exceed that (5 dB,
   300 ms) has 1.994 at 0.086. Difference -0.623 +/- 0.267 (p = 9.1e-05). That A3 configuration

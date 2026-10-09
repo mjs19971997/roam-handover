@@ -166,7 +166,7 @@ def pair_cfg(t, a, b, idx):
     ks = sorted(set(t[a]["per"]) & set(t[b]["per"]))
     d = [t[a]["per"][k][idx] - t[b]["per"][k][idx] for k in ks]
     m, ci = A.mean_ci(d)
-    p, _ = A.wilcoxon(d)
+    p, _ = A.wilcoxon(d, A.TIE_TOL)          # idx 0, 1: unnecessary handovers and failures per UE-minute (count rates)
     return dict(n_pairs=len(ks), diff=m, diff_ci95=ci, wilcoxon_p=p)
 
 

@@ -109,7 +109,7 @@ Test seeds 1–8, 40-cell layout, 300 users; every method tuned with the same 24
 
 | Mobility | Unnecessary HO, tuned A3 | Unnecessary HO, ROAM | Reduction | Failures, A3 | Failures, ROAM | Delivered/demand, ROAM − A3 [pts] |
 |---|---|---|---|---|---|---|
-| Pedestrian | 0.42 | 0.27 | 35% | 0.04 | 0.05 | -1.2 |
+| Pedestrian | 0.42 | 0.27 | 35% | 0.045 | 0.055 | -1.2 |
 | Vehicular, open area | 1.46 | 0.87 | 40% | 0.34 | 0.34 | -0.6 |
 | Vehicular, street grid | 1.60 | 0.86 | 46% | 0.40 | 0.34 | -1.5 |
 | Highway | 4.11 | 1.57 | 62% | 0.50 | 0.43 | -1.4 |
@@ -126,7 +126,7 @@ environment.
 
 | Environment | Unnecessary HO, tuned A3 | Unnecessary HO, ROAM | Change | Failures, A3 | Failures, ROAM |
 |---|---|---|---|---|---|
-| Urban grid (3GPP TR 37.885, blockage by buildings) | 2.220 | 1.390 | -37.4% | 0.031 | 0.097 |
+| Urban grid (3GPP TR 37.885, blockage by buildings) | 2.220 | 1.390 | -37.4% | 0.031 | 0.098 |
 | Open area (shadowing drawn per link) | 0.715 | 0.779 | +9.0% | 0.004 | 0.015 |
 
 In the urban grid the reduction is reproduced, at 37% against 53% in the simulator of this

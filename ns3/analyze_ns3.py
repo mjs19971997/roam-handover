@@ -62,9 +62,19 @@ def mean_ci(x):
     return m, t975(n - 1) * s / math.sqrt(n)
 
 
-def wilcoxon(d):
-    """Two-sided exact Wilcoxon signed-rank p-value for paired differences d."""
-    d = [v for v in d if abs(v) > 1e-12]
+# Rates per UE-minute are counts divided by the UE-minutes of a run and are stored in results.csv with
+# eight significant digits.  Differences of equal counts then differ in the last stored digit, and a
+# tolerance of 1e-12 would rank such tied differences as if they were distinct.  For the count rates the
+# signed-rank test therefore treats differences within TIE_TOL as tied (and as zero): the rounding error
+# of a difference is below 3e-6 for rates up to 30, the smallest true step is 1/UE-minutes >= 0.003.
+TIE_TOL = 1e-5
+COUNT_RATES = ("uho_pm", "fail_pm", "ho_pm")
+
+
+def wilcoxon(d, tol=1e-12):
+    """Two-sided exact Wilcoxon signed-rank p-value for paired differences d (average ranks for ties,
+    zeros dropped; differences within tol count as tied)."""
+    d = [v for v in d if abs(v) > tol]
     n = len(d)
     if n == 0:
         return 1.0, 0
@@ -73,7 +83,7 @@ def wilcoxon(d):
     i = 0
     while i < n:
         j = i
-        while j + 1 < n and abs(abs(d[order[j + 1]]) - abs(d[order[i]])) <= 1e-12:
+        while j + 1 < n and abs(abs(d[order[j + 1]]) - abs(d[order[i]])) <= tol:
             j += 1
         r2 = (i + 1) + (j + 1)            # 2 * mean of ranks i+1..j+1
         for k in range(i, j + 1):
@@ -118,7 +128,7 @@ def compare(cellrows, a, b, metric):
     d = [p - q for p, q in zip(va, vb)]
     ma, mb = sum(va) / len(va), sum(vb) / len(vb)
     md, ci = mean_ci(d)
-    p, nz = wilcoxon(d)
+    p, nz = wilcoxon(d, TIE_TOL if metric in COUNT_RATES else 1e-12)
     return dict(n_pairs=len(keys), mean_a=ma, mean_b=mb, diff=md, diff_ci95=ci,
                 rel_change_pct=(100.0 * (ma - mb) / mb) if abs(mb) > 1e-12 else None,
                 wilcoxon_p=p, nonzero_pairs=nz)
