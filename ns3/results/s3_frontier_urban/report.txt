@@ -1,0 +1,6 @@
+results: results/s3_frontier_urban/results.csv
+rows: 1152  (tuning 0, test 0, robustness 0)
+outcome counts equal the number of attempts in 1152 of 1152 runs
+wall time per run: mean 109 s; simulated 207360 s in 34.7 h of single-run wall time
+
+written: results/s3_frontier_urban/ns3_summary.json

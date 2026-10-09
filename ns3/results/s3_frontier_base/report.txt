@@ -1,0 +1,6 @@
+results: results/s3_frontier_base/results.csv
+rows: 1152  (tuning 0, test 0, robustness 0)
+outcome counts equal the number of attempts in 1152 of 1152 runs
+wall time per run: mean 93 s; simulated 207360 s in 29.8 h of single-run wall time
+
+written: results/s3_frontier_base/ns3_summary.json

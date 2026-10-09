@@ -1,0 +1,6 @@
+results: results/s5_sens_base/results.csv
+rows: 580  (tuning 0, test 0, robustness 0)
+outcome counts equal the number of attempts in 580 of 580 runs
+wall time per run: mean 200 s; simulated 130800 s in 32.3 h of single-run wall time
+
+written: results/s5_sens_base/ns3_summary.json

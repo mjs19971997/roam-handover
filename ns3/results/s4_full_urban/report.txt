@@ -1,0 +1,69 @@
+results: results/s4_full_urban/results.csv
+rows: 60  (tuning 0, test 60, robustness 0)
+outcome counts equal the number of attempts in 60 of 60 runs
+wall time per run: mean 670 s; simulated 6000 s in 11.2 h of single-run wall time
+
+TEST  ISD 200 m, speed 8 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned        5  1.515 +/- 0.512   0.195 +/- 0.268   3.405 +/- 0.587   0.109 +/- 0.131 0.000 +/- 0.000 0.3934 +/- 0.0360 7.328 +/- 1.054
+  ROAM            5  6.180 +/- 1.051   1.110 +/- 0.548   3.990 +/- 0.716   0.182 +/- 0.070 0.021 +/- 0.016 0.4170 +/- 0.0304 8.596 +/- 1.033
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [    67] failures  227 = T310 expiry  166 (early in target 12, no handover pending 154) + late command   61 + during handover 0 + RLC 0; LOS to serving site 69.5 % of time
+    ROAM          [    67] failures  266 = T310 expiry   20 (early in target 3, no handover pending 17) + late command  246 + during handover 0 + RLC 0; LOS to serving site 69.9 % of time
+    ROAM vs A3_tuned [5 pairs]: uho_pm +469.2% (diff 0.915 +/- 0.682, p=0.0625); fail_pm +17.2% (diff 0.585 +/- 1.191, p=0.312); ho_pm +307.9% (diff 4.665 +/- 1.389, p=0.0625); delivery +6.0% (diff 0.024 +/- 0.023, p=0.0625)
+
+TEST  ISD 200 m, speed 16 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned        5  1.485 +/- 0.282   0.135 +/- 0.202   4.095 +/- 1.051   0.088 +/- 0.127 0.000 +/- 0.000 0.3837 +/- 0.0362 6.995 +/- 1.179
+  ROAM            5  7.980 +/- 1.630   1.320 +/- 0.387   5.475 +/- 1.191   0.167 +/- 0.030 0.030 +/- 0.017 0.3930 +/- 0.0449 7.976 +/- 1.645
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [    67] failures  273 = T310 expiry  212 (early in target 6, no handover pending 204) + late command   61 + during handover 0 + RLC 0; LOS to serving site 69.5 % of time
+    ROAM          [    67] failures  365 = T310 expiry   19 (early in target 3, no handover pending 16) + late command  346 + during handover 0 + RLC 0; LOS to serving site 70.7 % of time
+    ROAM vs A3_tuned [5 pairs]: uho_pm +877.8% (diff 1.185 +/- 0.490, p=0.0625); fail_pm +33.7% (diff 1.380 +/- 1.387, p=0.0625); ho_pm +437.4% (diff 6.495 +/- 1.772, p=0.0625); delivery +2.4% (diff 0.009 +/- 0.025, p=0.438)
+
+TEST  ISD 200 m, speed 30 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned        5  1.785 +/- 0.769   0.090 +/- 0.042   4.530 +/- 0.420   0.054 +/- 0.019 0.000 +/- 0.000 0.3674 +/- 0.0211 6.526 +/- 0.642
+  ROAM            5  9.045 +/- 0.729   1.635 +/- 0.202   5.310 +/- 1.006   0.186 +/- 0.026 0.032 +/- 0.009 0.3911 +/- 0.0285 8.412 +/- 0.564
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [    67] failures  302 = T310 expiry  231 (early in target 2, no handover pending 229) + late command   71 + during handover 0 + RLC 0; LOS to serving site 71.4 % of time
+    ROAM          [    67] failures  354 = T310 expiry    4 (early in target 2, no handover pending 2) + late command  350 + during handover 0 + RLC 0; LOS to serving site 73.8 % of time
+    ROAM vs A3_tuned [5 pairs]: uho_pm +1716.7% (diff 1.545 +/- 0.214, p=0.0625); fail_pm +17.2% (diff 0.780 +/- 0.654, p=0.0625); ho_pm +406.7% (diff 7.260 +/- 1.182, p=0.0625); delivery +6.5% (diff 0.024 +/- 0.010, p=0.0625)
+
+TEST  ISD 400 m, speed 8 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned        5  0.930 +/- 0.327   0.090 +/- 0.078   1.560 +/- 0.275   0.092 +/- 0.071 0.000 +/- 0.000 0.5928 +/- 0.0399 15.908 +/- 1.070
+  ROAM            5  2.700 +/- 0.618   0.450 +/- 0.255   1.545 +/- 0.620   0.179 +/- 0.115 0.018 +/- 0.035 0.6048 +/- 0.0383 16.429 +/- 1.070
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [    67] failures  104 = T310 expiry   70 (early in target 9, no handover pending 59) + late command   34 + during handover 0 + RLC 0; LOS to serving site 69.8 % of time
+    ROAM          [    67] failures  103 = T310 expiry    1 (early in target 0, no handover pending 1) + late command  102 + during handover 0 + RLC 0; LOS to serving site 70.2 % of time
+    ROAM vs A3_tuned [5 pairs]: uho_pm +400.0% (diff 0.360 +/- 0.267, p=0.125); fail_pm -1.0% (diff -0.015 +/- 0.698, p=1); ho_pm +190.3% (diff 1.770 +/- 0.930, p=0.0625); delivery +2.0% (diff 0.012 +/- 0.018, p=0.188)
+
+TEST  ISD 400 m, speed 16 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned        5  1.140 +/- 0.241   0.090 +/- 0.102   1.965 +/- 0.191   0.078 +/- 0.074 0.000 +/- 0.000 0.5685 +/- 0.0271 15.146 +/- 0.503
+  ROAM            5  4.290 +/- 0.369   0.735 +/- 0.232   2.445 +/- 0.545   0.178 +/- 0.048 0.021 +/- 0.019 0.5739 +/- 0.0309 16.076 +/- 0.540
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [    67] failures  131 = T310 expiry   94 (early in target 2, no handover pending 90) + late command   37 + during handover 0 + RLC 0; LOS to serving site 69.9 % of time
+    ROAM          [    67] failures  163 = T310 expiry    3 (early in target 0, no handover pending 3) + late command  160 + during handover 0 + RLC 0; LOS to serving site 71.0 % of time
+    ROAM vs A3_tuned [5 pairs]: uho_pm +716.7% (diff 0.645 +/- 0.268, p=0.0625); fail_pm +24.4% (diff 0.480 +/- 0.468, p=0.125); ho_pm +276.3% (diff 3.150 +/- 0.432, p=0.0625); delivery +1.0% (diff 0.005 +/- 0.007, p=0.0625)
+
+TEST  ISD 400 m, speed 30 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned        5  2.115 +/- 0.290   0.000 +/- 0.000   3.300 +/- 0.355   0.000 +/- 0.000 0.000 +/- 0.000 0.5277 +/- 0.0225 13.810 +/- 0.166
+  ROAM            5  6.180 +/- 0.376   1.065 +/- 0.212   3.345 +/- 0.591   0.179 +/- 0.033 0.017 +/- 0.013 0.5583 +/- 0.0218 15.979 +/- 0.437
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [    67] failures  220 = T310 expiry  135 (early in target 1, no handover pending 134) + late command   85 + during handover 0 + RLC 0; LOS to serving site 71.6 % of time
+    ROAM          [    67] failures  223 = T310 expiry    0 (early in target 0, no handover pending 0) + late command  223 + during handover 0 + RLC 0; LOS to serving site 73.8 % of time
+    ROAM vs A3_tuned [5 pairs]: uho_pm n/a (diff 1.065 +/- 0.212, p=0.0625); fail_pm +1.4% (diff 0.045 +/- 0.705, p=0.875); ho_pm +192.2% (diff 4.065 +/- 0.507, p=0.0625); delivery +5.8% (diff 0.031 +/- 0.008, p=0.0625)
+
+TEST  all cells pooled (pairs = cell x seed)
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned       30  1.495 +/- 0.192   0.100 +/- 0.046   3.143 +/- 0.433   0.070 +/- 0.027 0.000 +/- 0.000 0.4722 +/- 0.0364 10.952 +/- 1.558
+  ROAM           30  6.062 +/- 0.844   1.052 +/- 0.171   3.685 +/- 0.585   0.178 +/- 0.017 0.023 +/- 0.006 0.4897 +/- 0.0356 12.245 +/- 1.514
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [   400] failures 1257 = T310 expiry  908 (early in target 32, no handover pending 870) + late command  349 + during handover 0 + RLC 0; LOS to serving site 70.3 % of time
+    ROAM          [   400] failures 1474 = T310 expiry   47 (early in target 8, no handover pending 39) + late command 1427 + during handover 0 + RLC 0; LOS to serving site 71.6 % of time
+    ROAM vs A3_tuned [30 pairs]: uho_pm +952.5% (diff 0.953 +/- 0.180, p=3.73e-09); fail_pm +17.3% (diff 0.542 +/- 0.306, p=0.000558); ho_pm +305.5% (diff 4.567 +/- 0.777, p=1.86e-09); delivery +3.7% (diff 0.017 +/- 0.006, p=8.33e-07)
+
+written: results/s4_full_urban/ns3_summary.json

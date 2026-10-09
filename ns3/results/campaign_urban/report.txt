@@ -1,0 +1,214 @@
+results: results/campaign_urban/results.csv
+rows: 812  (tuning 192, test 600, robustness 20)
+outcome counts equal the number of attempts in 812 of 812 runs
+wall time per run: mean 143 s; simulated 139200 s in 32.2 h of single-run wall time
+
+TUNING (validation traces; * = selected, R = reference of the failure budget)
+  configuration                traces  HO/UE-min UHO/UE-min fail/UE-min
+  A3_h6_t1000                       4      3.808      0.233     1.2083   
+  A3_h5_t1000                       4      3.825      0.242     1.1083   
+  A3_h4_t1000                       4      4.367      0.458     1.2167   
+  A3_h3_t1000                       4      4.358      0.608     1.0250   
+  A3_h6_t500                        4      4.467      0.683     0.4833   
+  A3_h2_t1000                       4      5.133      1.025     1.1750   
+  A3_h1_t1000                       4      5.367      1.250     0.9833   
+  A3_h5_t500                        4      5.400      1.350     0.5750   
+  A3_h6_t300                        4      5.908      1.742     0.1917   
+  A3_h4_t500                        4      6.117      1.750     0.5500   
+  A3_h3_t500                        4      6.408      2.125     0.3083   
+  A3_h5_t300                        4      6.592      2.200     0.2417   
+  A3_h6_t100                        4      7.283      2.617     0.0917 * 
+  A3_h2_t500                        4      7.833      3.183     0.4000   
+  A3_h4_t300                        4      7.942      3.200     0.1583   
+  A3_h5_t100                        4      7.950      3.275     0.0167   
+  A3_h3_t300                        4      9.067      4.108     0.1000  R
+  A3_h1_t500                        4      9.225      4.383     0.3000   
+  A3_h4_t100                        4     10.075      4.892     0.0167   
+  A3_h2_t300                        4     10.242      5.108     0.1083   
+  A3_h3_t100                        4     10.400      5.433     0.0333   
+  A3_h1_t300                        4     12.133      6.817     0.0417   
+  A3_h2_t100                        4     12.717      7.317     0.0250   
+  A3_h1_t100                        4     15.850     10.033     0.0000   
+  ROAM_h2_t300_e14-8-8_c9           4      5.075      1.392     0.1750   
+  ROAM_h2_t300_e10-6-3_c9           4      5.308      1.458     0.1583   
+  ROAM_h1_t300_e14-8-8_c9           4      5.150      1.475     0.1000 * 
+  ROAM_h2_t300_e6-4-6_c9            4      5.375      1.725     0.1250   
+  ROAM_h2_t100_e14-8-8_c9           4      5.833      1.892     0.0250   
+  ROAM_h1_t300_e6-4-6_c9            4      5.667      1.933     0.1083   
+  ROAM_h1_t300_e10-6-3_c9           4      5.892      1.942     0.1167   
+  ROAM_h1_t100_e14-8-8_c9           4      5.950      2.083     0.0583   
+  ROAM_h2_t100_e10-6-3_c9           4      6.375      2.225     0.0333   
+  ROAM_h2_t100_e6-4-6_c9            4      6.400      2.400     0.0500   
+  ROAM_h1_t100_e6-4-6_c9            4      6.608      2.583     0.0333   
+  ROAM_h1_t300_e10-6-3_c5           4      7.258      2.767     0.0917   
+  ROAM_h2_t300_e10-6-3_c5           4      7.142      2.775     0.1167   
+  ROAM_h2_t300_e14-8-8_c5           4      7.233      2.867     0.1167   
+  ROAM_h2_t300_e6-4-6_c5            4      7.033      2.875     0.0833   
+  ROAM_h1_t300_e14-8-8_c5           4      7.483      2.942     0.1250   
+  ROAM_h1_t100_e10-6-3_c9           4      7.350      3.175     0.0500   
+  ROAM_h1_t300_e6-4-6_c5            4      7.525      3.183     0.0833   
+  ROAM_h1_t100_e10-6-3_c5           4      8.175      3.650     0.0000   
+  ROAM_h2_t100_e10-6-3_c5           4      8.633      3.975     0.0167   
+  ROAM_h1_t100_e14-8-8_c5           4      9.275      4.392     0.0250   
+  ROAM_h2_t100_e14-8-8_c5           4      9.317      4.442     0.0250   
+  ROAM_h2_t100_e6-4-6_c5            4      9.183      4.542     0.0250   
+  ROAM_h1_t100_e6-4-6_c5            4      9.608      4.833     0.0250   
+  failure budget 0.1000 per UE-minute; selected A3: A3_h6_t100; selected ROAM: ROAM_h1_t300_e14-8-8_c9
+
+TEST  ISD 200 m, speed 8 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned       20  6.549 +/- 0.269   2.284 +/- 0.136   0.005 +/- 0.005   0.357 +/- 0.012 0.027 +/- 0.003 0.9984 +/- 0.0005 9.314 +/- 0.305
+  ROAM           20  4.489 +/- 0.182   1.601 +/- 0.105   0.046 +/- 0.018   0.365 +/- 0.016 0.034 +/- 0.006 0.9989 +/- 0.0003 9.195 +/- 0.256
+  ROAM_overlap   20  4.969 +/- 0.141   1.977 +/- 0.079   0.037 +/- 0.017   0.407 +/- 0.011 0.048 +/- 0.004 0.9987 +/- 0.0004 9.244 +/- 0.332
+  ROAM_history   20  6.312 +/- 0.222   2.321 +/- 0.108   0.016 +/- 0.006   0.377 +/- 0.008 0.025 +/- 0.003 0.9985 +/- 0.0005 9.115 +/- 0.306
+  A3_h0          20  12.283 +/- 0.391  6.700 +/- 0.249   0.005 +/- 0.006   0.556 +/- 0.009 0.144 +/- 0.007 0.9977 +/- 0.0007 9.505 +/- 0.270
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [   800] failures    4 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    4 + during handover 0 + RLC 0; LOS to serving site 73.8 % of time
+    ROAM          [   800] failures   37 = T310 expiry    0 (early in target 0, no handover pending 0) + late command   37 + during handover 0 + RLC 0; LOS to serving site 73.6 % of time
+    ROAM_overlap  [   800] failures   30 = T310 expiry    3 (early in target 0, no handover pending 3) + late command   27 + during handover 0 + RLC 0; LOS to serving site 73.4 % of time
+    ROAM_history  [   800] failures   13 = T310 expiry    0 (early in target 0, no handover pending 0) + late command   13 + during handover 0 + RLC 0; LOS to serving site 73.7 % of time
+    A3_h0         [   800] failures    4 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    4 + during handover 0 + RLC 0; LOS to serving site 73.7 % of time
+    ROAM vs A3_tuned [20 pairs]: uho_pm -29.9% (diff -0.682 +/- 0.185, p=9.54e-06); fail_pm +825.0% (diff 0.041 +/- 0.019, p=0.000275); ho_pm -31.5% (diff -2.060 +/- 0.276, p=1.91e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.00174)
+    ROAM_overlap vs A3_tuned [20 pairs]: uho_pm -13.4% (diff -0.306 +/- 0.138, p=0.000378); fail_pm +650.0% (diff 0.033 +/- 0.020, p=0.00214); ho_pm -24.1% (diff -1.580 +/- 0.264, p=1.91e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.0332)
+    ROAM_history vs A3_tuned [20 pairs]: uho_pm +1.6% (diff 0.037 +/- 0.112, p=0.47); fail_pm +225.0% (diff 0.011 +/- 0.007, p=0.0117); ho_pm -3.6% (diff -0.236 +/- 0.214, p=0.035); delivery +0.0% (diff 0.000 +/- 0.000, p=0.307)
+    A3_h0 vs A3_tuned [20 pairs]: uho_pm +193.4% (diff 4.416 +/- 0.223, p=1.91e-06); fail_pm +0.0% (diff 0.000 +/- 0.008, p=1); ho_pm +87.6% (diff 5.734 +/- 0.312, p=1.91e-06); delivery -0.1% (diff -0.001 +/- 0.000, p=0.00124)
+    ROAM vs A3_h0 [20 pairs]: uho_pm -76.1% (diff -5.099 +/- 0.290, p=1.91e-06); fail_pm +825.0% (diff 0.041 +/- 0.018, p=6.1e-05); ho_pm -63.5% (diff -7.794 +/- 0.397, p=1.91e-06); delivery +0.1% (diff 0.001 +/- 0.001, p=5.72e-05)
+    ROAM vs ROAM_overlap [20 pairs]: uho_pm -19.0% (diff -0.376 +/- 0.115, p=1.91e-05); fail_pm +23.3% (diff 0.009 +/- 0.026, p=0.388); ho_pm -9.7% (diff -0.480 +/- 0.202, p=0.000221); delivery +0.0% (diff 0.000 +/- 0.000, p=0.0932)
+    ROAM vs ROAM_history [20 pairs]: uho_pm -31.0% (diff -0.720 +/- 0.144, p=1.91e-06); fail_pm +184.6% (diff 0.030 +/- 0.018, p=0.00354); ho_pm -28.9% (diff -1.824 +/- 0.212, p=1.91e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.0893)
+
+TEST  ISD 200 m, speed 16 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned       20  8.096 +/- 0.194   3.255 +/- 0.153   0.100 +/- 0.027   0.410 +/- 0.012 0.065 +/- 0.007 0.9969 +/- 0.0005 8.886 +/- 0.168
+  ROAM           20  5.346 +/- 0.241   1.855 +/- 0.141   0.276 +/- 0.041   0.354 +/- 0.016 0.054 +/- 0.008 0.9974 +/- 0.0004 8.851 +/- 0.190
+  ROAM_overlap   20  6.204 +/- 0.200   2.484 +/- 0.114   0.258 +/- 0.054   0.410 +/- 0.009 0.077 +/- 0.010 0.9972 +/- 0.0004 8.752 +/- 0.155
+  ROAM_history   20  7.333 +/- 0.202   2.899 +/- 0.122   0.249 +/- 0.037   0.403 +/- 0.009 0.055 +/- 0.006 0.9970 +/- 0.0005 8.589 +/- 0.172
+  A3_h0          20  14.611 +/- 0.470  8.423 +/- 0.382   0.096 +/- 0.025   0.585 +/- 0.009 0.178 +/- 0.009 0.9959 +/- 0.0007 8.742 +/- 0.205
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [   800] failures   80 = T310 expiry    2 (early in target 0, no handover pending 2) + late command   78 + during handover 0 + RLC 0; LOS to serving site 74.5 % of time
+    ROAM          [   800] failures  221 = T310 expiry   16 (early in target 3, no handover pending 12) + late command  205 + during handover 0 + RLC 0; LOS to serving site 74.6 % of time
+    ROAM_overlap  [   800] failures  206 = T310 expiry   23 (early in target 6, no handover pending 17) + late command  183 + during handover 0 + RLC 0; LOS to serving site 74.5 % of time
+    ROAM_history  [   800] failures  199 = T310 expiry    6 (early in target 2, no handover pending 4) + late command  193 + during handover 0 + RLC 0; LOS to serving site 74.4 % of time
+    A3_h0         [   800] failures   77 = T310 expiry    0 (early in target 0, no handover pending 0) + late command   77 + during handover 0 + RLC 0; LOS to serving site 74.4 % of time
+    ROAM vs A3_tuned [20 pairs]: uho_pm -43.0% (diff -1.400 +/- 0.190, p=1.91e-06); fail_pm +176.2% (diff 0.176 +/- 0.040, p=1.91e-06); ho_pm -34.0% (diff -2.750 +/- 0.258, p=1.91e-06); delivery +0.1% (diff 0.001 +/- 0.000, p=0.00113)
+    ROAM_overlap vs A3_tuned [20 pairs]: uho_pm -23.7% (diff -0.771 +/- 0.205, p=3.81e-06); fail_pm +157.5% (diff 0.158 +/- 0.046, p=3.81e-06); ho_pm -23.4% (diff -1.893 +/- 0.225, p=1.91e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.0292)
+    ROAM_history vs A3_tuned [20 pairs]: uho_pm -10.9% (diff -0.356 +/- 0.194, p=0.00169); fail_pm +148.8% (diff 0.149 +/- 0.034, p=3.81e-06); ho_pm -9.4% (diff -0.764 +/- 0.261, p=2.1e-05); delivery +0.0% (diff 0.000 +/- 0.000, p=0.373)
+    A3_h0 vs A3_tuned [20 pairs]: uho_pm +158.8% (diff 5.168 +/- 0.352, p=1.91e-06); fail_pm -3.8% (diff -0.004 +/- 0.034, p=0.809); ho_pm +80.5% (diff 6.515 +/- 0.421, p=1.91e-06); delivery -0.1% (diff -0.001 +/- 0.000, p=1.91e-05)
+    ROAM vs A3_h0 [20 pairs]: uho_pm -78.0% (diff -6.567 +/- 0.375, p=1.91e-06); fail_pm +187.0% (diff 0.180 +/- 0.046, p=1.91e-06); ho_pm -63.4% (diff -9.265 +/- 0.450, p=1.91e-06); delivery +0.2% (diff 0.002 +/- 0.000, p=5.72e-06)
+    ROAM vs ROAM_overlap [20 pairs]: uho_pm -25.3% (diff -0.629 +/- 0.186, p=3.81e-06); fail_pm +7.3% (diff 0.019 +/- 0.054, p=0.398); ho_pm -13.8% (diff -0.857 +/- 0.311, p=1.14e-05); delivery +0.0% (diff 0.000 +/- 0.000, p=0.0332)
+    ROAM vs ROAM_history [20 pairs]: uho_pm -36.0% (diff -1.044 +/- 0.138, p=1.91e-06); fail_pm +11.1% (diff 0.027 +/- 0.040, p=0.198); ho_pm -27.1% (diff -1.986 +/- 0.251, p=1.91e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.00722)
+
+TEST  ISD 200 m, speed 30 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned       20  9.456 +/- 0.221   3.779 +/- 0.177   0.077 +/- 0.020   0.407 +/- 0.011 0.101 +/- 0.008 0.9936 +/- 0.0007 8.448 +/- 0.148
+  ROAM           20  6.529 +/- 0.173   1.884 +/- 0.126   0.209 +/- 0.029   0.295 +/- 0.013 0.075 +/- 0.005 0.9946 +/- 0.0005 8.482 +/- 0.139
+  ROAM_overlap   20  7.375 +/- 0.208   2.639 +/- 0.177   0.191 +/- 0.040   0.364 +/- 0.015 0.096 +/- 0.007 0.9944 +/- 0.0006 8.512 +/- 0.156
+  ROAM_history   20  8.012 +/- 0.204   2.723 +/- 0.136   0.271 +/- 0.049   0.347 +/- 0.010 0.074 +/- 0.005 0.9935 +/- 0.0007 8.120 +/- 0.127
+  A3_h0          20  16.440 +/- 0.347  9.650 +/- 0.307   0.085 +/- 0.028   0.596 +/- 0.008 0.218 +/- 0.006 0.9921 +/- 0.0010 8.070 +/- 0.159
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [   800] failures   62 = T310 expiry    2 (early in target 1, no handover pending 1) + late command   60 + during handover 0 + RLC 0; LOS to serving site 73.9 % of time
+    ROAM          [   800] failures  167 = T310 expiry   11 (early in target 3, no handover pending 8) + late command  156 + during handover 0 + RLC 0; LOS to serving site 73.9 % of time
+    ROAM_overlap  [   800] failures  153 = T310 expiry    7 (early in target 4, no handover pending 3) + late command  146 + during handover 0 + RLC 0; LOS to serving site 73.9 % of time
+    ROAM_history  [   800] failures  217 = T310 expiry    3 (early in target 0, no handover pending 3) + late command  214 + during handover 0 + RLC 0; LOS to serving site 73.6 % of time
+    A3_h0         [   800] failures   68 = T310 expiry    1 (early in target 0, no handover pending 1) + late command   67 + during handover 0 + RLC 0; LOS to serving site 73.6 % of time
+    ROAM vs A3_tuned [20 pairs]: uho_pm -50.1% (diff -1.895 +/- 0.205, p=1.91e-06); fail_pm +169.4% (diff 0.131 +/- 0.032, p=3.81e-06); ho_pm -31.0% (diff -2.927 +/- 0.225, p=1.91e-06); delivery +0.1% (diff 0.001 +/- 0.000, p=4.58e-05)
+    ROAM_overlap vs A3_tuned [20 pairs]: uho_pm -30.2% (diff -1.140 +/- 0.196, p=1.91e-06); fail_pm +146.8% (diff 0.114 +/- 0.039, p=5.72e-06); ho_pm -22.0% (diff -2.081 +/- 0.226, p=1.91e-06); delivery +0.1% (diff 0.001 +/- 0.000, p=0.000317)
+    ROAM_history vs A3_tuned [20 pairs]: uho_pm -28.0% (diff -1.056 +/- 0.243, p=3.81e-06); fail_pm +250.0% (diff 0.194 +/- 0.048, p=3.81e-06); ho_pm -15.3% (diff -1.444 +/- 0.320, p=3.81e-06); delivery -0.0% (diff -0.000 +/- 0.000, p=0.469)
+    A3_h0 vs A3_tuned [20 pairs]: uho_pm +155.4% (diff 5.871 +/- 0.296, p=1.91e-06); fail_pm +9.7% (diff 0.007 +/- 0.031, p=0.809); ho_pm +73.9% (diff 6.984 +/- 0.328, p=1.91e-06); delivery -0.2% (diff -0.002 +/- 0.000, p=9.54e-06)
+    ROAM vs A3_h0 [20 pairs]: uho_pm -80.5% (diff -7.766 +/- 0.316, p=1.91e-06); fail_pm +145.6% (diff 0.124 +/- 0.040, p=1.53e-05); ho_pm -60.3% (diff -9.911 +/- 0.339, p=1.91e-06); delivery +0.2% (diff 0.002 +/- 0.001, p=1.91e-06)
+    ROAM vs ROAM_overlap [20 pairs]: uho_pm -28.6% (diff -0.755 +/- 0.217, p=7.63e-06); fail_pm +9.2% (diff 0.017 +/- 0.046, p=0.389); ho_pm -11.5% (diff -0.846 +/- 0.229, p=3.81e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.316)
+    ROAM vs ROAM_history [20 pairs]: uho_pm -30.8% (diff -0.839 +/- 0.179, p=1.91e-06); fail_pm -23.0% (diff -0.062 +/- 0.056, p=0.0495); ho_pm -18.5% (diff -1.484 +/- 0.230, p=1.91e-06); delivery +0.1% (diff 0.001 +/- 0.000, p=3.81e-06)
+
+TEST  ISD 400 m, speed 8 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned       20  3.190 +/- 0.093   1.022 +/- 0.061   0.000 +/- 0.000   0.329 +/- 0.014 0.028 +/- 0.005 0.9995 +/- 0.0002 16.367 +/- 0.174
+  ROAM           20  2.434 +/- 0.139   0.821 +/- 0.095   0.003 +/- 0.004   0.342 +/- 0.025 0.033 +/- 0.006 0.9997 +/- 0.0002 16.297 +/- 0.225
+  ROAM_overlap   20  2.574 +/- 0.124   0.886 +/- 0.068   0.010 +/- 0.007   0.354 +/- 0.018 0.046 +/- 0.007 0.9996 +/- 0.0002 16.467 +/- 0.179
+  ROAM_history   20  3.305 +/- 0.121   1.100 +/- 0.080   0.008 +/- 0.006   0.342 +/- 0.016 0.028 +/- 0.009 0.9995 +/- 0.0002 16.294 +/- 0.203
+  A3_h0          20  6.036 +/- 0.221   3.177 +/- 0.165   0.004 +/- 0.004   0.536 +/- 0.014 0.163 +/- 0.012 0.9991 +/- 0.0003 16.483 +/- 0.208
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [   800] failures    0 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    0 + during handover 0 + RLC 0; LOS to serving site 74.5 % of time
+    ROAM          [   800] failures    2 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    2 + during handover 0 + RLC 0; LOS to serving site 74.5 % of time
+    ROAM_overlap  [   800] failures    8 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    8 + during handover 0 + RLC 0; LOS to serving site 74.5 % of time
+    ROAM_history  [   800] failures    6 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    6 + during handover 0 + RLC 0; LOS to serving site 74.4 % of time
+    A3_h0         [   800] failures    3 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    3 + during handover 0 + RLC 0; LOS to serving site 74.4 % of time
+    ROAM vs A3_tuned [20 pairs]: uho_pm -19.7% (diff -0.201 +/- 0.116, p=0.00116); fail_pm n/a (diff 0.003 +/- 0.004, p=0.5); ho_pm -23.7% (diff -0.756 +/- 0.177, p=3.81e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.00161)
+    ROAM_overlap vs A3_tuned [20 pairs]: uho_pm -13.3% (diff -0.136 +/- 0.090, p=0.00427); fail_pm n/a (diff 0.010 +/- 0.007, p=0.0156); ho_pm -19.3% (diff -0.616 +/- 0.134, p=1.91e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.025)
+    ROAM_history vs A3_tuned [20 pairs]: uho_pm +7.6% (diff 0.077 +/- 0.095, p=0.0891); fail_pm n/a (diff 0.008 +/- 0.006, p=0.0312); ho_pm +3.6% (diff 0.115 +/- 0.137, p=0.0744); delivery +0.0% (diff 0.000 +/- 0.000, p=0.823)
+    A3_h0 vs A3_tuned [20 pairs]: uho_pm +210.8% (diff 2.155 +/- 0.174, p=1.91e-06); fail_pm n/a (diff 0.004 +/- 0.004, p=0.25); ho_pm +89.2% (diff 2.846 +/- 0.268, p=1.91e-06); delivery -0.0% (diff -0.000 +/- 0.000, p=0.000931)
+    ROAM vs A3_h0 [20 pairs]: uho_pm -74.2% (diff -2.356 +/- 0.167, p=1.91e-06); fail_pm -33.3% (diff -0.001 +/- 0.005, p=1); ho_pm -59.7% (diff -3.603 +/- 0.214, p=1.91e-06); delivery +0.1% (diff 0.001 +/- 0.000, p=4.58e-05)
+    ROAM vs ROAM_overlap [20 pairs]: uho_pm -7.3% (diff -0.065 +/- 0.103, p=0.2); fail_pm -75.0% (diff -0.008 +/- 0.007, p=0.0625); ho_pm -5.4% (diff -0.140 +/- 0.173, p=0.147); delivery +0.0% (diff 0.000 +/- 0.000, p=0.734)
+    ROAM vs ROAM_history [20 pairs]: uho_pm -25.3% (diff -0.279 +/- 0.138, p=0.000551); fail_pm -66.7% (diff -0.005 +/- 0.007, p=0.289); ho_pm -26.4% (diff -0.871 +/- 0.208, p=5.72e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.0025)
+
+TEST  ISD 400 m, speed 16 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned       20  4.421 +/- 0.149   1.596 +/- 0.135   0.001 +/- 0.003   0.369 +/- 0.020 0.063 +/- 0.007 0.9991 +/- 0.0003 16.039 +/- 0.128
+  ROAM           20  3.473 +/- 0.071   1.054 +/- 0.072   0.026 +/- 0.018   0.311 +/- 0.017 0.045 +/- 0.009 0.9991 +/- 0.0002 16.047 +/- 0.121
+  ROAM_overlap   20  3.806 +/- 0.120   1.357 +/- 0.097   0.016 +/- 0.011   0.364 +/- 0.016 0.063 +/- 0.008 0.9991 +/- 0.0003 16.063 +/- 0.120
+  ROAM_history   20  4.085 +/- 0.149   1.349 +/- 0.099   0.039 +/- 0.019   0.337 +/- 0.014 0.057 +/- 0.006 0.9989 +/- 0.0003 15.816 +/- 0.160
+  A3_h0          20  7.575 +/- 0.191   4.173 +/- 0.168   0.006 +/- 0.005   0.561 +/- 0.011 0.204 +/- 0.013 0.9985 +/- 0.0005 16.004 +/- 0.143
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [   800] failures    1 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    1 + during handover 0 + RLC 0; LOS to serving site 75.1 % of time
+    ROAM          [   800] failures   21 = T310 expiry    2 (early in target 2, no handover pending 0) + late command   19 + during handover 0 + RLC 0; LOS to serving site 75.2 % of time
+    ROAM_overlap  [   800] failures   13 = T310 expiry    0 (early in target 0, no handover pending 0) + late command   13 + during handover 0 + RLC 0; LOS to serving site 75.2 % of time
+    ROAM_history  [   800] failures   31 = T310 expiry    0 (early in target 0, no handover pending 0) + late command   31 + during handover 0 + RLC 0; LOS to serving site 75.0 % of time
+    A3_h0         [   800] failures    5 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    5 + during handover 0 + RLC 0; LOS to serving site 75.0 % of time
+    ROAM vs A3_tuned [20 pairs]: uho_pm -34.0% (diff -0.542 +/- 0.150, p=3.81e-06); fail_pm +2000.0% (diff 0.025 +/- 0.019, p=0.00684); ho_pm -21.5% (diff -0.949 +/- 0.176, p=1.91e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.54)
+    ROAM_overlap vs A3_tuned [20 pairs]: uho_pm -15.0% (diff -0.239 +/- 0.165, p=0.00804); fail_pm +1200.0% (diff 0.015 +/- 0.012, p=0.0234); ho_pm -13.9% (diff -0.615 +/- 0.200, p=4.77e-05); delivery +0.0% (diff 0.000 +/- 0.000, p=0.368)
+    ROAM_history vs A3_tuned [20 pairs]: uho_pm -15.5% (diff -0.247 +/- 0.162, p=0.000456); fail_pm +3000.0% (diff 0.037 +/- 0.019, p=0.000244); ho_pm -7.6% (diff -0.336 +/- 0.215, p=0.00105); delivery -0.0% (diff -0.000 +/- 0.000, p=0.353)
+    A3_h0 vs A3_tuned [20 pairs]: uho_pm +161.4% (diff 2.576 +/- 0.221, p=1.91e-06); fail_pm +400.0% (diff 0.005 +/- 0.006, p=0.219); ho_pm +71.3% (diff 3.154 +/- 0.252, p=1.91e-06); delivery -0.1% (diff -0.001 +/- 0.000, p=2.29e-05)
+    ROAM vs A3_h0 [20 pairs]: uho_pm -74.7% (diff -3.119 +/- 0.169, p=1.91e-06); fail_pm +320.0% (diff 0.020 +/- 0.019, p=0.0371); ho_pm -54.2% (diff -4.103 +/- 0.174, p=1.91e-06); delivery +0.1% (diff 0.001 +/- 0.000, p=0.0002)
+    ROAM vs ROAM_overlap [20 pairs]: uho_pm -22.4% (diff -0.304 +/- 0.138, p=0.000183); fail_pm +61.5% (diff 0.010 +/- 0.023, p=0.667); ho_pm -8.8% (diff -0.334 +/- 0.135, p=7.63e-05); delivery -0.0% (diff -0.000 +/- 0.000, p=0.694)
+    ROAM vs ROAM_history [20 pairs]: uho_pm -21.9% (diff -0.295 +/- 0.143, p=0.000113); fail_pm -32.3% (diff -0.012 +/- 0.031, p=0.349); ho_pm -15.0% (diff -0.613 +/- 0.180, p=1.91e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.099)
+
+TEST  ISD 400 m, speed 30 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned       20  5.605 +/- 0.106   1.385 +/- 0.096   0.003 +/- 0.004   0.253 +/- 0.013 0.070 +/- 0.006 0.9980 +/- 0.0003 15.859 +/- 0.109
+  ROAM           20  5.120 +/- 0.082   1.125 +/- 0.089   0.025 +/- 0.012   0.225 +/- 0.015 0.052 +/- 0.006 0.9981 +/- 0.0003 15.815 +/- 0.085
+  ROAM_overlap   20  5.551 +/- 0.123   1.511 +/- 0.118   0.022 +/- 0.016   0.279 +/- 0.016 0.070 +/- 0.007 0.9980 +/- 0.0003 15.821 +/- 0.110
+  ROAM_history   20  5.439 +/- 0.101   1.241 +/- 0.090   0.054 +/- 0.016   0.234 +/- 0.014 0.060 +/- 0.006 0.9980 +/- 0.0003 15.531 +/- 0.107
+  A3_h0          20  8.518 +/- 0.163   4.072 +/- 0.144   0.014 +/- 0.010   0.488 +/- 0.009 0.223 +/- 0.008 0.9975 +/- 0.0005 15.695 +/- 0.097
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [   800] failures    2 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    2 + during handover 0 + RLC 0; LOS to serving site 74.4 % of time
+    ROAM          [   800] failures   20 = T310 expiry    0 (early in target 0, no handover pending 0) + late command   20 + during handover 0 + RLC 0; LOS to serving site 74.4 % of time
+    ROAM_overlap  [   800] failures   18 = T310 expiry    0 (early in target 0, no handover pending 0) + late command   18 + during handover 0 + RLC 0; LOS to serving site 74.4 % of time
+    ROAM_history  [   800] failures   43 = T310 expiry    0 (early in target 0, no handover pending 0) + late command   43 + during handover 0 + RLC 0; LOS to serving site 74.1 % of time
+    A3_h0         [   800] failures   11 = T310 expiry    0 (early in target 0, no handover pending 0) + late command   11 + during handover 0 + RLC 0; LOS to serving site 74.3 % of time
+    ROAM vs A3_tuned [20 pairs]: uho_pm -18.8% (diff -0.260 +/- 0.161, p=0.00507); fail_pm +900.0% (diff 0.022 +/- 0.013, p=0.0022); ho_pm -8.7% (diff -0.485 +/- 0.159, p=1.91e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.0543)
+    ROAM_overlap vs A3_tuned [20 pairs]: uho_pm +9.1% (diff 0.126 +/- 0.152, p=0.0877); fail_pm +800.0% (diff 0.020 +/- 0.017, p=0.0215); ho_pm -1.0% (diff -0.054 +/- 0.168, p=0.539); delivery +0.0% (diff 0.000 +/- 0.000, p=0.458)
+    ROAM_history vs A3_tuned [20 pairs]: uho_pm -10.4% (diff -0.144 +/- 0.126, p=0.0331); fail_pm +2050.0% (diff 0.051 +/- 0.017, p=4.58e-05); ho_pm -3.0% (diff -0.166 +/- 0.146, p=0.0711); delivery +0.0% (diff 0.000 +/- 0.000, p=0.33)
+    A3_h0 vs A3_tuned [20 pairs]: uho_pm +194.0% (diff 2.688 +/- 0.184, p=1.91e-06); fail_pm +450.0% (diff 0.011 +/- 0.010, p=0.0547); ho_pm +52.0% (diff 2.913 +/- 0.195, p=1.91e-06); delivery -0.0% (diff -0.000 +/- 0.000, p=0.00127)
+    ROAM vs A3_h0 [20 pairs]: uho_pm -72.4% (diff -2.948 +/- 0.157, p=1.91e-06); fail_pm +81.8% (diff 0.011 +/- 0.015, p=0.112); ho_pm -39.9% (diff -3.397 +/- 0.166, p=1.91e-06); delivery +0.1% (diff 0.001 +/- 0.000, p=1.91e-05)
+    ROAM vs ROAM_overlap [20 pairs]: uho_pm -25.6% (diff -0.386 +/- 0.127, p=1.91e-06); fail_pm +11.1% (diff 0.003 +/- 0.016, p=0.69); ho_pm -7.8% (diff -0.431 +/- 0.122, p=1.91e-06); delivery +0.0% (diff 0.000 +/- 0.000, p=0.278)
+    ROAM vs ROAM_history [20 pairs]: uho_pm -9.4% (diff -0.116 +/- 0.122, p=0.0651); fail_pm -53.5% (diff -0.029 +/- 0.020, p=0.00905); ho_pm -5.9% (diff -0.319 +/- 0.120, p=0.000114); delivery +0.0% (diff 0.000 +/- 0.000, p=0.281)
+
+TEST  all cells pooled (pairs = cell x seed)
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned      120  6.220 +/- 0.391   2.220 +/- 0.189   0.031 +/- 0.009   0.354 +/- 0.011 0.059 +/- 0.005 0.9976 +/- 0.0004 12.485 +/- 0.660
+  ROAM          120  4.565 +/- 0.248   1.390 +/- 0.085   0.097 +/- 0.021   0.315 +/- 0.011 0.049 +/- 0.004 0.9980 +/- 0.0003 12.448 +/- 0.660
+  ROAM_overlap  120  5.080 +/- 0.290   1.809 +/- 0.121   0.089 +/- 0.021   0.363 +/- 0.010 0.067 +/- 0.004 0.9978 +/- 0.0003 12.477 +/- 0.667
+  ROAM_history  120  5.748 +/- 0.311   1.939 +/- 0.139   0.106 +/- 0.022   0.340 +/- 0.011 0.050 +/- 0.004 0.9976 +/- 0.0004 12.244 +/- 0.667
+  A3_h0         120  10.910 +/- 0.701  6.032 +/- 0.447   0.035 +/- 0.009   0.554 +/- 0.007 0.189 +/- 0.006 0.9968 +/- 0.0005 12.417 +/- 0.671
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [  4800] failures  149 = T310 expiry    4 (early in target 1, no handover pending 3) + late command  145 + during handover 0 + RLC 0; LOS to serving site 74.4 % of time
+    ROAM          [  4800] failures  468 = T310 expiry   29 (early in target 8, no handover pending 20) + late command  439 + during handover 0 + RLC 0; LOS to serving site 74.4 % of time
+    ROAM_overlap  [  4800] failures  428 = T310 expiry   33 (early in target 10, no handover pending 23) + late command  395 + during handover 0 + RLC 0; LOS to serving site 74.3 % of time
+    ROAM_history  [  4800] failures  509 = T310 expiry    9 (early in target 2, no handover pending 7) + late command  500 + during handover 0 + RLC 0; LOS to serving site 74.2 % of time
+    A3_h0         [  4800] failures  168 = T310 expiry    1 (early in target 0, no handover pending 1) + late command  167 + during handover 0 + RLC 0; LOS to serving site 74.2 % of time
+    ROAM vs A3_tuned [120 pairs]: uho_pm -37.4% (diff -0.830 +/- 0.129, p=1.53e-27); fail_pm +214.1% (diff 0.066 +/- 0.015, p=1.93e-21); ho_pm -26.6% (diff -1.655 +/- 0.194, p=3.76e-35); delivery +0.0% (diff 0.000 +/- 0.000, p=1.37e-11)
+    ROAM_overlap vs A3_tuned [120 pairs]: uho_pm -18.5% (diff -0.411 +/- 0.098, p=1.79e-13); fail_pm +187.2% (diff 0.058 +/- 0.015, p=8.47e-19); ho_pm -18.3% (diff -1.140 +/- 0.157, p=5.28e-27); delivery +0.0% (diff 0.000 +/- 0.000, p=3.48e-07)
+    ROAM_history vs A3_tuned [120 pairs]: uho_pm -12.7% (diff -0.281 +/- 0.092, p=1.1e-07); fail_pm +241.6% (diff 0.075 +/- 0.016, p=2.77e-22); ho_pm -7.6% (diff -0.472 +/- 0.125, p=8.99e-12); delivery +0.0% (diff 0.000 +/- 0.000, p=0.782)
+    A3_h0 vs A3_tuned [120 pairs]: uho_pm +171.7% (diff 3.812 +/- 0.273, p=1.5e-36); fail_pm +12.8% (diff 0.004 +/- 0.008, p=0.368); ho_pm +75.4% (diff 4.691 +/- 0.340, p=1.5e-36); delivery -0.1% (diff -0.001 +/- 0.000, p=6.5e-21)
+    ROAM vs A3_h0 [120 pairs]: uho_pm -77.0% (diff -4.643 +/- 0.377, p=1.5e-36); fail_pm +178.6% (diff 0.062 +/- 0.016, p=3.95e-16); ho_pm -58.2% (diff -6.345 +/- 0.509, p=1.5e-36); delivery +0.1% (diff 0.001 +/- 0.000, p=8.69e-27)
+    ROAM vs ROAM_overlap [120 pairs]: uho_pm -23.2% (diff -0.419 +/- 0.071, p=3.45e-23); fail_pm +9.3% (diff 0.008 +/- 0.013, p=0.2); ho_pm -10.1% (diff -0.515 +/- 0.091, p=1.19e-22); delivery +0.0% (diff 0.000 +/- 0.000, p=0.0119)
+    ROAM vs ROAM_history [120 pairs]: uho_pm -28.3% (diff -0.549 +/- 0.082, p=5.17e-25); fail_pm -8.1% (diff -0.009 +/- 0.014, p=0.351); ho_pm -20.6% (diff -1.183 +/- 0.137, p=1.74e-33); delivery +0.0% (diff 0.000 +/- 0.000, p=1.85e-10)
+
+ROBUSTNESS  fast fading on, ISD 400 m, 16 m/s
+  rule            n  HO/UE-min         UHO/UE-min        fail/UE-min       UHR             ping-pong       delivery          SINR dB        
+  A3_tuned       10  4.540 +/- 0.349   1.550 +/- 0.280   0.005 +/- 0.011   0.354 +/- 0.041 0.068 +/- 0.021 0.9986 +/- 0.0004 15.720 +/- 0.248
+  ROAM           10  3.570 +/- 0.175   1.210 +/- 0.102   0.010 +/- 0.015   0.358 +/- 0.016 0.075 +/- 0.012 0.9987 +/- 0.0004 15.762 +/- 0.303
+  failure causes, total over runs (UE-minutes in brackets):
+    A3_tuned      [   200] failures    1 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    1 + during handover 0 + RLC 0; LOS to serving site 73.7 % of time
+    ROAM          [   200] failures    2 = T310 expiry    0 (early in target 0, no handover pending 0) + late command    2 + during handover 0 + RLC 0; LOS to serving site 73.7 % of time
+    ROAM vs A3_tuned [10 pairs]: uho_pm -21.9% (diff -0.340 +/- 0.278, p=0.0234); fail_pm +100.0% (diff 0.005 +/- 0.020, p=1); ho_pm -21.4% (diff -0.970 +/- 0.359, p=0.00195); delivery +0.0% (diff 0.000 +/- 0.000, p=0.883)
+
+written: results/campaign_urban/ns3_summary.json

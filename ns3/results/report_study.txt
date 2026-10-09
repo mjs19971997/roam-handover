@@ -1,0 +1,276 @@
+ROAM against tuned Event A3 in ns-3 (nr): consolidated report
+root: results
+
+1. CORE: tuned A3 against ROAM and its ablations (primary endpoints: UHO and failures per UE-minute)
+  urban  (600 test rows, seeds 1-20; frozen: A3 A3_h6_t100, ROAM ROAM_h1_t300_e14-8-8_c9; failure budget of the tuning 0.100)
+    rule             n UHO/UE-min       fail/UE-min      HO/UE-min        delivery      
+    A3_tuned       120 2.220 +/- 0.189  0.031 +/- 0.009  6.220 +/- 0.391  0.9976 +/- 0.0004
+    ROAM           120 1.390 +/- 0.085  0.097 +/- 0.021  4.565 +/- 0.248  0.9980 +/- 0.0003
+    ROAM_overlap   120 1.809 +/- 0.121  0.089 +/- 0.021  5.080 +/- 0.290  0.9978 +/- 0.0003
+    ROAM_history   120 1.939 +/- 0.139  0.106 +/- 0.022  5.748 +/- 0.311  0.9976 +/- 0.0004
+    A3_h0          120 6.032 +/- 0.447  0.035 +/- 0.009  10.910 +/- 0.701 0.9968 +/- 0.0005
+    ROAM         vs A3_tuned uho_pm   1.390 vs 2.220 (-37.4%, diff -0.830 +/- 0.129, Wilcoxon p=1.5e-27, 120 pairs)
+    ROAM         vs A3_tuned fail_pm  0.097 vs 0.031 (+214.1%, diff 0.066 +/- 0.015, Wilcoxon p=1.9e-21, 120 pairs)
+    ROAM_overlap vs A3_tuned uho_pm   1.809 vs 2.220 (-18.5%, diff -0.411 +/- 0.098, Wilcoxon p=1.8e-13, 120 pairs)
+    ROAM_overlap vs A3_tuned fail_pm  0.089 vs 0.031 (+187.2%, diff 0.058 +/- 0.015, Wilcoxon p=8.5e-19, 120 pairs)
+    ROAM_history vs A3_tuned uho_pm   1.939 vs 2.220 (-12.7%, diff -0.281 +/- 0.092, Wilcoxon p=1.1e-07, 120 pairs)
+    ROAM_history vs A3_tuned fail_pm  0.106 vs 0.031 (+241.6%, diff 0.075 +/- 0.016, Wilcoxon p=2.8e-22, 120 pairs)
+    A3_h0        vs A3_tuned uho_pm   6.032 vs 2.220 (+171.7%, diff 3.812 +/- 0.273, Wilcoxon p=1.5e-36, 120 pairs)
+    A3_h0        vs A3_tuned fail_pm  0.035 vs 0.031 (+12.8%, diff 0.004 +/- 0.008, Wilcoxon p=0.37, 120 pairs)
+    seeds 11-20 only (run after the plan was written; seeds 1-10 were known before):
+    ROAM         vs A3_tuned uho_pm   1.369 vs 2.237 (-38.8%, diff -0.868 +/- 0.174, Wilcoxon p=1.2e-17, 60 pairs)
+    ROAM         vs A3_tuned fail_pm  0.109 vs 0.037 (+194.4%, diff 0.072 +/- 0.022, Wilcoxon p=5.9e-12, 60 pairs)
+    by cell, ROAM vs A3_tuned:
+      ISD 200 m  8 m/s  UHO 1.601 vs 2.284 (-29.9%, diff -0.682 +/- 0.185, Wilcoxon p=9.5e-06, 20 pairs)
+                          fail 0.046 vs 0.005 (+825.0%, diff 0.041 +/- 0.019, Wilcoxon p=0.00027, 20 pairs)
+      ISD 200 m 16 m/s  UHO 1.855 vs 3.255 (-43.0%, diff -1.400 +/- 0.190, Wilcoxon p=1.9e-06, 20 pairs)
+                          fail 0.276 vs 0.100 (+176.2%, diff 0.176 +/- 0.040, Wilcoxon p=1.9e-06, 20 pairs)
+      ISD 200 m 30 m/s  UHO 1.884 vs 3.779 (-50.1%, diff -1.895 +/- 0.205, Wilcoxon p=1.9e-06, 20 pairs)
+                          fail 0.209 vs 0.077 (+169.4%, diff 0.131 +/- 0.032, Wilcoxon p=3.8e-06, 20 pairs)
+      ISD 400 m  8 m/s  UHO 0.821 vs 1.022 (-19.7%, diff -0.201 +/- 0.116, Wilcoxon p=0.0012, 20 pairs)
+                          fail 0.003 vs 0.000 (n/a, diff 0.003 +/- 0.004, Wilcoxon p=0.5, 20 pairs)
+      ISD 400 m 16 m/s  UHO 1.054 vs 1.596 (-34.0%, diff -0.542 +/- 0.150, Wilcoxon p=3.8e-06, 20 pairs)
+                          fail 0.026 vs 0.001 (+2000.0%, diff 0.025 +/- 0.019, Wilcoxon p=0.0068, 20 pairs)
+      ISD 400 m 30 m/s  UHO 1.125 vs 1.385 (-18.8%, diff -0.260 +/- 0.161, Wilcoxon p=0.0051, 20 pairs)
+                          fail 0.025 vs 0.003 (+900.0%, diff 0.022 +/- 0.013, Wilcoxon p=0.0022, 20 pairs)
+    fast-fading subset  uho_pm   1.210 vs 1.550 (-21.9%, diff -0.340 +/- 0.278, Wilcoxon p=0.023, 10 pairs)
+    fast-fading subset  fail_pm  0.010 vs 0.005 (+100.0%, diff 0.005 +/- 0.020, Wilcoxon p=1, 10 pairs)
+  base  (600 test rows, seeds 1-20; frozen: A3 A3_h6_t100, ROAM ROAM_h2_t300_e14-8-8_c9; failure budget of the tuning 0.017)
+    rule             n UHO/UE-min       fail/UE-min      HO/UE-min        delivery      
+    A3_tuned       120 0.715 +/- 0.073  0.004 +/- 0.002  5.028 +/- 0.414  0.9988 +/- 0.0002
+    ROAM           120 0.779 +/- 0.068  0.015 +/- 0.005  4.651 +/- 0.424  0.9989 +/- 0.0002
+    ROAM_overlap   120 0.985 +/- 0.093  0.012 +/- 0.004  4.945 +/- 0.459  0.9989 +/- 0.0002
+    ROAM_history   120 0.892 +/- 0.076  0.013 +/- 0.005  5.267 +/- 0.415  0.9988 +/- 0.0002
+    A3_h0          120 2.366 +/- 0.148  0.003 +/- 0.002  7.217 +/- 0.462  0.9986 +/- 0.0002
+    ROAM         vs A3_tuned uho_pm   0.779 vs 0.715 (+9.0%, diff 0.064 +/- 0.041, Wilcoxon p=0.0018, 120 pairs)
+    ROAM         vs A3_tuned fail_pm  0.015 vs 0.004 (+252.4%, diff 0.011 +/- 0.004, Wilcoxon p=9.2e-08, 120 pairs)
+    ROAM_overlap vs A3_tuned uho_pm   0.985 vs 0.715 (+37.8%, diff 0.270 +/- 0.051, Wilcoxon p=1.1e-19, 120 pairs)
+    ROAM_overlap vs A3_tuned fail_pm  0.012 vs 0.004 (+166.7%, diff 0.007 +/- 0.004, Wilcoxon p=0.00024, 120 pairs)
+    ROAM_history vs A3_tuned uho_pm   0.892 vs 0.715 (+24.9%, diff 0.178 +/- 0.041, Wilcoxon p=2.5e-14, 120 pairs)
+    ROAM_history vs A3_tuned fail_pm  0.013 vs 0.004 (+190.5%, diff 0.008 +/- 0.004, Wilcoxon p=0.00022, 120 pairs)
+    A3_h0        vs A3_tuned uho_pm   2.366 vs 0.715 (+231.2%, diff 1.652 +/- 0.094, Wilcoxon p=1.5e-36, 120 pairs)
+    A3_h0        vs A3_tuned fail_pm  0.003 vs 0.004 (-28.6%, diff -0.001 +/- 0.003, Wilcoxon p=0.5, 120 pairs)
+    by cell, ROAM vs A3_tuned:
+      ISD 200 m  8 m/s  UHO 0.390 vs 0.339 (+15.1%, diff 0.051 +/- 0.082, Wilcoxon p=0.17, 20 pairs)
+                          fail 0.000 vs 0.000 (n/a, diff 0.000 +/- 0.000, Wilcoxon p=1, 20 pairs)
+      ISD 200 m 16 m/s  UHO 0.794 vs 0.615 (+29.1%, diff 0.179 +/- 0.098, Wilcoxon p=0.0008, 20 pairs)
+                          fail 0.000 vs 0.000 (n/a, diff 0.000 +/- 0.000, Wilcoxon p=1, 20 pairs)
+      ISD 200 m 30 m/s  UHO 1.232 vs 1.164 (+5.9%, diff 0.069 +/- 0.146, Wilcoxon p=0.45, 20 pairs)
+                          fail 0.001 vs 0.000 (n/a, diff 0.001 +/- 0.003, Wilcoxon p=1, 20 pairs)
+      ISD 400 m  8 m/s  UHO 0.372 vs 0.268 (+39.3%, diff 0.105 +/- 0.043, Wilcoxon p=0.0002, 20 pairs)
+                          fail 0.004 vs 0.000 (n/a, diff 0.004 +/- 0.004, Wilcoxon p=0.25, 20 pairs)
+      ISD 400 m 16 m/s  UHO 0.672 vs 0.664 (+1.3%, diff 0.009 +/- 0.105, Wilcoxon p=0.64, 20 pairs)
+                          fail 0.043 vs 0.015 (+183.3%, diff 0.028 +/- 0.014, Wilcoxon p=0.001, 20 pairs)
+      ISD 400 m 30 m/s  UHO 1.211 vs 1.239 (-2.2%, diff -0.027 +/- 0.113, Wilcoxon p=0.59, 20 pairs)
+                          fail 0.045 vs 0.011 (+300.0%, diff 0.034 +/- 0.018, Wilcoxon p=0.00085, 20 pairs)
+    fast-fading subset  uho_pm   0.625 vs 0.690 (-9.4%, diff -0.065 +/- 0.182, Wilcoxon p=0.44, 10 pairs)
+    fast-fading subset  fail_pm  0.015 vs 0.005 (+200.0%, diff 0.010 +/- 0.015, Wilcoxon p=0.5, 10 pairs)
+
+2. EQUAL FAILURE RATE AND PARETO FRONTS (every tuning configuration run on the test cells)
+   Rates are totals over all cells and seeds divided by the UE-minutes. Picking the best
+   configuration of a family on these same runs favours that family (no held-out data).
+  urban  (1152 rows, 24 A3 and 24 ROAM configurations, 24 runs each at most)
+    frozen ROAM ROAM_h1_t300_e14-8-8_c9: UHO 1.371, failures 0.097 per UE-minute
+      best A3 with failures not above it (11 candidates): A3_h5_t300, UHO 1.994, failures 0.086
+      ROAM minus that A3: UHO -0.623 +/- 0.267 (p=9.1e-05), failures 0.010 +/- 0.031 (p=0.21), 24 pairs
+    frozen A3 A3_h6_t100: UHO 2.242, failures 0.023 per UE-minute
+      best ROAM with failures not above it (7 candidates): ROAM_h1_t100_e10-6-3_c9, UHO 2.472, failures 0.023
+      A3 minus that ROAM: UHO -0.230 +/- 0.231 (p=0.073), failures 0.000 +/- 0.011 (p=0.92), 24 pairs
+    lowest UHO per UE-minute among configurations within a failure budget:
+      failures <= 0.00:  A3 none   ROAM none
+      failures <= 0.01:  A3 A3_h3_t100 (UHO 5.069, fail 0.009)   ROAM ROAM_h1_t100_e14-8-8_c5 (UHO 3.876, fail 0.009)
+      failures <= 0.02:  A3 A3_h5_t100 (UHO 2.964, fail 0.017)   ROAM ROAM_h2_t100_e10-6-3_c5 (UHO 3.349, fail 0.017)
+      failures <= 0.05:  A3 A3_h6_t100 (UHO 2.242, fail 0.023)   ROAM ROAM_h2_t100_e14-8-8_c9 (UHO 1.789, fail 0.034)
+      failures <= 0.10:  A3 A3_h5_t300 (UHO 1.994, fail 0.086)   ROAM ROAM_h2_t300_e10-6-3_c9 (UHO 1.350, fail 0.082)
+      failures <= 0.20:  A3 A3_h6_t300 (UHO 1.438, fail 0.118)   ROAM ROAM_h2_t300_e14-8-8_c9 (UHO 1.240, fail 0.104)
+      failures <= 0.50:  A3 A3_h6_t500 (UHO 0.916, fail 0.368)   ROAM ROAM_h2_t300_e14-8-8_c9 (UHO 1.240, fail 0.104)
+    Pareto front of A3 (failures, UHO):
+      A3_h1_t100                   fail 0.005  UHO 8.481  HO 13.70   not dominated by the other family
+      A3_h2_t100                   fail 0.006  UHO 6.482  HO 11.44   not dominated by the other family
+      A3_h3_t100                   fail 0.009  UHO 5.069  HO 9.79   dominated by 3 configuration(s) of the other family
+      A3_h4_t100                   fail 0.011  UHO 3.848  HO 8.33   not dominated by the other family
+      A3_h5_t100                   fail 0.017  UHO 2.964  HO 7.20   not dominated by the other family
+      A3_h6_t100                   fail 0.023  UHO 2.242  HO 6.23   not dominated by the other family
+      A3_h5_t300                   fail 0.086  UHO 1.994  HO 5.84   dominated by 6 configuration(s) of the other family
+      A3_h6_t300                   fail 0.118  UHO 1.438  HO 5.17   dominated by 4 configuration(s) of the other family
+      A3_h6_t500                   fail 0.368  UHO 0.916  HO 4.31   not dominated by the other family
+      A3_h4_t1000                  fail 0.849  UHO 0.640  HO 3.94   not dominated by the other family
+      A3_h5_t1000                  fail 0.866  UHO 0.428  HO 3.52   not dominated by the other family
+      A3_h6_t1000                  fail 0.965  UHO 0.320  HO 3.35   not dominated by the other family
+    Pareto front of ROAM (failures, UHO):
+      ROAM_h1_t100_e14-8-8_c5      fail 0.009  UHO 3.876  HO 8.01   not dominated by the other family
+      ROAM_h1_t100_e10-6-3_c5      fail 0.015  UHO 3.552  HO 7.73   not dominated by the other family
+      ROAM_h2_t100_e10-6-3_c5      fail 0.017  UHO 3.349  HO 7.55   dominated by 1 configuration(s) of the other family
+      ROAM_h1_t100_e10-6-3_c9      fail 0.023  UHO 2.472  HO 6.14   dominated by 1 configuration(s) of the other family
+      ROAM_h1_t100_e6-4-6_c9       fail 0.024  UHO 2.431  HO 5.91   dominated by 1 configuration(s) of the other family
+      ROAM_h2_t100_e10-6-3_c9      fail 0.025  UHO 1.996  HO 5.52   not dominated by the other family
+      ROAM_h1_t100_e14-8-8_c9      fail 0.026  UHO 1.929  HO 5.29   not dominated by the other family
+      ROAM_h2_t100_e14-8-8_c9      fail 0.034  UHO 1.789  HO 5.10   not dominated by the other family
+      ROAM_h2_t300_e6-4-6_c9       fail 0.068  UHO 1.424  HO 4.63   not dominated by the other family
+      ROAM_h2_t300_e10-6-3_c9      fail 0.082  UHO 1.350  HO 4.74   not dominated by the other family
+      ROAM_h2_t300_e14-8-8_c9      fail 0.104  UHO 1.240  HO 4.39   not dominated by the other family
+  base  (1152 rows, 24 A3 and 24 ROAM configurations, 24 runs each at most)
+    frozen ROAM ROAM_h2_t300_e14-8-8_c9: UHO 0.787, failures 0.013 per UE-minute
+      best A3 with failures not above it (11 candidates): A3_h6_t100, UHO 0.728, failures 0.001
+      ROAM minus that A3: UHO 0.059 +/- 0.103 (p=0.28), failures 0.011 +/- 0.010 (p=0.031), 24 pairs
+    frozen A3 A3_h6_t100: UHO 0.728, failures 0.001 per UE-minute
+      best ROAM with failures not above it (3 candidates): ROAM_h2_t100_e10-6-3_c5, UHO 1.406, failures 0.000
+      A3 minus that ROAM: UHO -0.678 +/- 0.128 (p=1.2e-07), failures 0.001 +/- 0.002 (p=1), 24 pairs
+    lowest UHO per UE-minute among configurations within a failure budget:
+      failures <= 0.00:  A3 A3_h5_t100 (UHO 0.966, fail 0.000)   ROAM ROAM_h2_t100_e10-6-3_c5 (UHO 1.406, fail 0.000)
+      failures <= 0.01:  A3 A3_h6_t100 (UHO 0.728, fail 0.001)   ROAM ROAM_h2_t300_e6-4-6_c9 (UHO 0.844, fail 0.005)
+      failures <= 0.02:  A3 A3_h6_t300 (UHO 0.560, fail 0.017)   ROAM ROAM_h2_t300_e14-8-8_c9 (UHO 0.787, fail 0.013)
+      failures <= 0.05:  A3 A3_h6_t300 (UHO 0.560, fail 0.017)   ROAM ROAM_h2_t300_e14-8-8_c9 (UHO 0.787, fail 0.013)
+      failures <= 0.10:  A3 A3_h6_t500 (UHO 0.439, fail 0.093)   ROAM ROAM_h2_t300_e14-8-8_c9 (UHO 0.787, fail 0.013)
+      failures <= 0.20:  A3 A3_h6_t500 (UHO 0.439, fail 0.093)   ROAM ROAM_h2_t300_e14-8-8_c9 (UHO 0.787, fail 0.013)
+      failures <= 0.50:  A3 A3_h6_t500 (UHO 0.439, fail 0.093)   ROAM ROAM_h2_t300_e14-8-8_c9 (UHO 0.787, fail 0.013)
+    Pareto front of A3 (failures, UHO):
+      A3_h5_t100                   fail 0.000  UHO 0.966  HO 5.38   not dominated by the other family
+      A3_h6_t100                   fail 0.001  UHO 0.728  HO 4.96   not dominated by the other family
+      A3_h6_t300                   fail 0.017  UHO 0.560  HO 4.69   not dominated by the other family
+      A3_h5_t500                   fail 0.072  UHO 0.551  HO 4.66   not dominated by the other family
+      A3_h6_t500                   fail 0.093  UHO 0.439  HO 4.50   not dominated by the other family
+      A3_h5_t1000                  fail 0.557  UHO 0.355  HO 4.28   not dominated by the other family
+      A3_h6_t1000                  fail 0.656  UHO 0.214  HO 4.00   not dominated by the other family
+    Pareto front of ROAM (failures, UHO):
+      ROAM_h2_t100_e10-6-3_c5      fail 0.000  UHO 1.406  HO 5.78   dominated by 1 configuration(s) of the other family
+      ROAM_h2_t300_e10-6-3_c9      fail 0.002  UHO 0.881  HO 4.97   dominated by 1 configuration(s) of the other family
+      ROAM_h2_t300_e6-4-6_c9       fail 0.005  UHO 0.844  HO 4.71   dominated by 1 configuration(s) of the other family
+      ROAM_h2_t300_e14-8-8_c9      fail 0.013  UHO 0.787  HO 4.65   dominated by 1 configuration(s) of the other family
+
+3. LOADED NETWORK (own tuning and test per traffic mode)
+  urban, traffic mixed  (141 rows; frozen A3 A3_h5_t1000, ROAM ROAM_h1_t300_e6-4-6_c9; budget 4.088; cell-slots with a scheduled UE 68.1 %, data-region resources used 46.0 %)
+    A3_tuned      n= 30 UHO 0.212 +/- 0.066 fail 2.453 +/- 0.380 HO 2.332 +/- 0.222 delivery 0.8592 +/- 0.0266 outage s/UE-min 0.405 +/- 0.061
+    ROAM          n= 29 UHO 1.338 +/- 0.168 fail 2.298 +/- 0.498 HO 5.567 +/- 0.755 delivery 0.8939 +/- 0.0219 outage s/UE-min 0.212 +/- 0.043
+    ROAM_overlap  n= 28 UHO 1.259 +/- 0.129 fail 2.195 +/- 0.457 HO 5.430 +/- 0.670 delivery 0.8976 +/- 0.0225 outage s/UE-min 0.203 +/- 0.041
+    ROAM_history  n= 27 UHO 2.730 +/- 0.393 fail 3.294 +/- 0.790 HO 8.333 +/- 1.291 delivery 0.8836 +/- 0.0267 outage s/UE-min 0.299 +/- 0.070
+    A3_h0         n= 27 UHO 4.333 +/- 0.564 fail 3.248 +/- 0.822 HO 10.296 +/- 1.497 delivery 0.8859 +/- 0.0259 outage s/UE-min 0.296 +/- 0.072
+    ROAM         vs A3_tuned uho_pm   1.338 vs 0.214 (+525.8%, diff 1.124 +/- 0.189, Wilcoxon p=3.7e-09, 29 pairs)
+    ROAM         vs A3_tuned fail_pm  2.298 vs 2.407 (-4.5%, diff -0.109 +/- 0.240, Wilcoxon p=0.27, 29 pairs)
+    ROAM_overlap vs A3_tuned uho_pm   1.259 vs 0.216 (+482.6%, diff 1.043 +/- 0.152, Wilcoxon p=1.5e-08, 28 pairs)
+    ROAM_overlap vs A3_tuned fail_pm  2.195 vs 2.405 (-8.8%, diff -0.211 +/- 0.241, Wilcoxon p=0.019, 28 pairs)
+    ROAM_history vs A3_tuned uho_pm   2.730 vs 0.202 (+1252.3%, diff 2.528 +/- 0.405, Wilcoxon p=1.5e-08, 27 pairs)
+    ROAM_history vs A3_tuned fail_pm  3.294 vs 2.506 (+31.5%, diff 0.789 +/- 0.456, Wilcoxon p=0.0071, 27 pairs)
+  base, traffic mixed  (137 rows; frozen A3 A3_h5_t100, ROAM ROAM_h2_t100_e14-8-8_c9; budget 2.606; cell-slots with a scheduled UE 69.1 %, data-region resources used 50.3 %)
+    A3_tuned      n= 29 UHO 0.659 +/- 0.113 fail 1.986 +/- 0.541 HO 5.379 +/- 0.917 delivery 0.8943 +/- 0.0126 outage s/UE-min 0.181 +/- 0.049
+    ROAM          n= 28 UHO 0.789 +/- 0.189 fail 0.932 +/- 0.231 HO 4.966 +/- 1.039 delivery 0.9074 +/- 0.0092 outage s/UE-min 0.087 +/- 0.021
+    ROAM_overlap  n= 27 UHO 0.930 +/- 0.231 fail 0.991 +/- 0.266 HO 4.998 +/- 1.018 delivery 0.9017 +/- 0.0081 outage s/UE-min 0.098 +/- 0.025
+    ROAM_history  n= 28 UHO 1.336 +/- 0.268 fail 1.548 +/- 0.413 HO 6.293 +/- 1.137 delivery 0.9032 +/- 0.0101 outage s/UE-min 0.143 +/- 0.037
+    A3_h0         n= 25 UHO 2.840 +/- 0.397 fail 1.104 +/- 0.414 HO 7.942 +/- 1.213 delivery 0.9047 +/- 0.0111 outage s/UE-min 0.102 +/- 0.037
+    ROAM         vs A3_tuned uho_pm   0.787 vs 0.633 (+24.3%, diff 0.154 +/- 0.161, Wilcoxon p=0.13, 27 pairs)
+    ROAM         vs A3_tuned fail_pm  0.943 vs 1.939 (-51.4%, diff -0.996 +/- 0.380, Wilcoxon p=1.4e-06, 27 pairs)
+    ROAM_overlap vs A3_tuned uho_pm   0.931 vs 0.640 (+45.3%, diff 0.290 +/- 0.215, Wilcoxon p=0.019, 26 pairs)
+    ROAM_overlap vs A3_tuned fail_pm  0.998 vs 1.767 (-43.5%, diff -0.769 +/- 0.322, Wilcoxon p=6e-06, 26 pairs)
+    ROAM_history vs A3_tuned uho_pm   1.343 vs 0.635 (+111.4%, diff 0.707 +/- 0.224, Wilcoxon p=6.3e-07, 27 pairs)
+    ROAM_history vs A3_tuned fail_pm  1.554 vs 1.980 (-21.5%, diff -0.426 +/- 0.223, Wilcoxon p=0.00031, 27 pairs)
+  urban, traffic full  (60 rows; frozen A3 A3_h5_t1000, ROAM ROAM_h1_t300_e6-4-6_c9; budget 4.088; cell-slots with a scheduled UE 94.1 %, data-region resources used 87.6 %)
+    A3_tuned      n= 30 UHO 0.100 +/- 0.046 fail 3.143 +/- 0.433 HO 1.495 +/- 0.192 delivery 0.4722 +/- 0.0364 outage s/UE-min 0.490 +/- 0.066
+    ROAM          n= 30 UHO 1.052 +/- 0.171 fail 3.685 +/- 0.585 HO 6.062 +/- 0.844 delivery 0.4897 +/- 0.0356 outage s/UE-min 0.335 +/- 0.053
+    ROAM         vs A3_tuned uho_pm   1.052 vs 0.100 (+952.5%, diff 0.953 +/- 0.180, Wilcoxon p=3.7e-09, 30 pairs)
+    ROAM         vs A3_tuned fail_pm  3.685 vs 3.143 (+17.3%, diff 0.542 +/- 0.306, Wilcoxon p=0.00056, 30 pairs)
+
+4. SENSITIVITIES (frozen settings of the core campaign of each scenario; ROAM vs A3_tuned)
+  urban
+    fading     UHO  1.445 vs 2.278 (-36.6%, diff -0.833 +/- 0.194, Wilcoxon p=5.9e-14, 60 pairs)
+               fail 0.091 vs 0.031 (+194.6%, diff 0.060 +/- 0.033, Wilcoxon p=0.00018, 60 pairs)
+    isd300     UHO  1.260 vs 2.170 (-41.9%, diff -0.910 +/- 0.298, Wilcoxon p=0.002, 10 pairs)
+               fail 0.068 vs 0.025 (+170.0%, diff 0.042 +/- 0.035, Wilcoxon p=0.027, 10 pairs)
+    long600    UHO  1.481 vs 2.465 (-39.9%, diff -0.984 +/- 0.302, Wilcoxon p=1.9e-06, 20 pairs)
+               fail 0.136 vs 0.048 (+185.4%, diff 0.088 +/- 0.036, Wilcoxon p=7.6e-06, 20 pairs)
+               ROAM vs ROAM_overlap uho_pm   1.481 vs 1.960 (-24.4%, diff -0.479 +/- 0.120, Wilcoxon p=1.9e-06, 20 pairs)
+               ROAM vs ROAM_overlap fail_pm  0.136 vs 0.137 (-1.2%, diff -0.002 +/- 0.012, Wilcoxon p=0.87, 20 pairs)
+               ROAM vs ROAM_history uho_pm   1.481 vs 1.981 (-25.2%, diff -0.500 +/- 0.198, Wilcoxon p=1.3e-05, 20 pairs)
+               ROAM vs ROAM_history fail_pm  0.136 vs 0.142 (-4.5%, diff -0.006 +/- 0.016, Wilcoxon p=0.58, 20 pairs)
+    prep100    UHO  1.460 vs 2.476 (-41.0%, diff -1.016 +/- 0.357, Wilcoxon p=1.9e-06, 20 pairs)
+               fail 0.159 vs 0.059 (+170.2%, diff 0.100 +/- 0.051, Wilcoxon p=0.00015, 20 pairs)
+    prep20     UHO  1.486 vs 2.410 (-38.3%, diff -0.924 +/- 0.263, Wilcoxon p=1.9e-06, 20 pairs)
+               fail 0.106 vs 0.041 (+157.6%, diff 0.065 +/- 0.040, Wilcoxon p=0.0021, 20 pairs)
+    t310x2000  UHO  1.806 vs 3.073 (-41.2%, diff -1.266 +/- 0.389, Wilcoxon p=1.9e-06, 20 pairs)
+               fail 0.123 vs 0.045 (+172.2%, diff 0.077 +/- 0.043, Wilcoxon p=0.00034, 20 pairs)
+    t310x500   UHO  1.166 vs 1.677 (-30.5%, diff -0.511 +/- 0.178, Wilcoxon p=1.3e-05, 20 pairs)
+               fail 0.143 vs 0.048 (+200.0%, diff 0.095 +/- 0.048, Wilcoxon p=0.00049, 20 pairs)
+    ue10       UHO  1.565 vs 2.615 (-40.2%, diff -1.050 +/- 0.488, Wilcoxon p=0.00012, 20 pairs)
+               fail 0.105 vs 0.022 (+366.7%, diff 0.082 +/- 0.051, Wilcoxon p=0.0024, 20 pairs)
+    ue40       UHO  1.518 vs 2.456 (-38.2%, diff -0.938 +/- 0.271, Wilcoxon p=1.9e-06, 20 pairs)
+               fail 0.205 vs 0.086 (+139.4%, diff 0.119 +/- 0.055, Wilcoxon p=4.6e-05, 20 pairs)
+    ue60       UHO  1.124 vs 1.454 (-22.7%, diff -0.330 +/- 0.185, Wilcoxon p=0.0059, 10 pairs)
+               fail 0.086 vs 0.021 (+312.0%, diff 0.065 +/- 0.018, Wilcoxon p=0.002, 10 pairs)
+    v3         UHO  0.547 vs 0.531 (+3.1%, diff 0.016 +/- 0.094, Wilcoxon p=0.81, 20 pairs)
+               fail 0.009 vs 0.000 (n/a, diff 0.009 +/- 0.007, Wilcoxon p=0.031, 20 pairs)
+    v42        UHO  1.315 vs 2.350 (-44.0%, diff -1.035 +/- 0.403, Wilcoxon p=7.6e-06, 20 pairs)
+               fail 0.013 vs 0.001 (+900.0%, diff 0.011 +/- 0.007, Wilcoxon p=0.0078, 20 pairs)
+  base
+    fading     UHO  0.780 vs 0.767 (+1.6%, diff 0.012 +/- 0.087, Wilcoxon p=0.64, 60 pairs)
+               fail 0.008 vs 0.003 (+150.0%, diff 0.005 +/- 0.006, Wilcoxon p=0.15, 60 pairs)
+    isd300     UHO  0.647 vs 0.703 (-7.8%, diff -0.055 +/- 0.145, Wilcoxon p=0.48, 10 pairs)
+               fail 0.013 vs 0.000 (n/a, diff 0.013 +/- 0.013, Wilcoxon p=0.12, 10 pairs)
+    isd500     UHO  0.593 vs 0.755 (-21.5%, diff -0.163 +/- 0.105, Wilcoxon p=0.0078, 10 pairs)
+               fail 0.072 vs 0.050 (+45.0%, diff 0.022 +/- 0.033, Wilcoxon p=0.17, 10 pairs)
+    long600    UHO  0.730 vs 0.647 (+12.9%, diff 0.083 +/- 0.064, Wilcoxon p=0.016, 20 pairs)
+               fail 0.021 vs 0.007 (+192.3%, diff 0.014 +/- 0.009, Wilcoxon p=0.00049, 20 pairs)
+               ROAM vs ROAM_overlap uho_pm   0.730 vs 0.929 (-21.4%, diff -0.199 +/- 0.047, Wilcoxon p=1.9e-06, 20 pairs)
+               ROAM vs ROAM_overlap fail_pm  0.021 vs 0.017 (+22.6%, diff 0.004 +/- 0.009, Wilcoxon p=0.35, 20 pairs)
+               ROAM vs ROAM_history uho_pm   0.730 vs 0.872 (-16.3%, diff -0.142 +/- 0.057, Wilcoxon p=0.0002, 20 pairs)
+               ROAM vs ROAM_history fail_pm  0.021 vs 0.014 (+46.2%, diff 0.007 +/- 0.006, Wilcoxon p=0.02, 20 pairs)
+    prep100    UHO  0.751 vs 0.726 (+3.4%, diff 0.025 +/- 0.095, Wilcoxon p=0.63, 20 pairs)
+               fail 0.018 vs 0.010 (+75.0%, diff 0.007 +/- 0.009, Wilcoxon p=0.16, 20 pairs)
+    prep20     UHO  0.696 vs 0.653 (+6.7%, diff 0.044 +/- 0.097, Wilcoxon p=0.37, 20 pairs)
+               fail 0.020 vs 0.009 (+128.6%, diff 0.011 +/- 0.015, Wilcoxon p=0.14, 20 pairs)
+    t310x2000  UHO  0.980 vs 0.995 (-1.5%, diff -0.015 +/- 0.112, Wilcoxon p=0.78, 20 pairs)
+               fail 0.016 vs 0.004 (+333.3%, diff 0.013 +/- 0.012, Wilcoxon p=0.062, 20 pairs)
+    t310x500   UHO  0.526 vs 0.422 (+24.6%, diff 0.104 +/- 0.089, Wilcoxon p=0.033, 20 pairs)
+               fail 0.026 vs 0.005 (+425.0%, diff 0.021 +/- 0.013, Wilcoxon p=0.0039, 20 pairs)
+    ue10       UHO  0.742 vs 0.665 (+11.7%, diff 0.078 +/- 0.153, Wilcoxon p=0.31, 20 pairs)
+               fail 0.017 vs 0.005 (+250.0%, diff 0.013 +/- 0.013, Wilcoxon p=0.12, 20 pairs)
+    ue40       UHO  0.716 vs 0.602 (+18.9%, diff 0.114 +/- 0.065, Wilcoxon p=0.0019, 20 pairs)
+               fail 0.027 vs 0.009 (+207.1%, diff 0.018 +/- 0.013, Wilcoxon p=0.013, 20 pairs)
+    ue60       UHO  0.616 vs 0.731 (-15.7%, diff -0.115 +/- 0.070, Wilcoxon p=0.0098, 10 pairs)
+               fail 0.053 vs 0.028 (+88.2%, diff 0.025 +/- 0.021, Wilcoxon p=0.039, 10 pairs)
+    v3         UHO  0.164 vs 0.053 (+211.9%, diff 0.111 +/- 0.036, Wilcoxon p=1.5e-05, 20 pairs)
+               fail 0.004 vs 0.000 (n/a, diff 0.004 +/- 0.006, Wilcoxon p=0.5, 20 pairs)
+    v42        UHO  1.606 vs 1.590 (+1.0%, diff 0.016 +/- 0.132, Wilcoxon p=0.98, 20 pairs)
+               fail 0.000 vs 0.000 (n/a, diff 0.000 +/- 0.000, Wilcoxon p=1, 20 pairs)
+
+5. PER-CLASS SERVICE METRICS (downlink stream of each UE; mean over runs)
+   delivery ratio | mean delay ms | 95th-percentile delay ms | gaps > 100 ms and > 500 ms per UE-minute
+   (with light traffic the packet interval is 100 ms, so only the 500 ms figure is meaningful there)
+  urban, traffic mixed
+    A3_tuned (30 runs; outage 0.41 s per UE-minute)
+      voice   0.9488 |    22.9 |    81.8 |   43.46    0.65
+      vcall   0.8882 |    32.4 |   145.8 |   65.12    1.04
+      gaming  0.9005 |    36.4 |   159.3 |   66.80    0.83
+      stream  0.8327 |    34.7 |   153.2 |   67.96    1.31
+      web     0.8837 |    30.8 |   132.9 |   61.30    1.61
+    ROAM (29 runs; outage 0.21 s per UE-minute)
+      voice   0.9697 |    19.9 |    58.9 |   33.50    0.20
+      vcall   0.9177 |    30.4 |   137.2 |   59.66    0.47
+      gaming  0.9354 |    32.2 |   147.5 |   59.51    0.22
+      stream  0.8695 |    32.4 |   145.5 |   61.06    0.43
+      web     0.9213 |    28.0 |   121.8 |   54.46    0.48
+  base, traffic mixed
+    A3_tuned (29 runs; outage 0.18 s per UE-minute)
+      voice   0.9791 |    17.8 |    34.6 |   22.92    0.02
+      vcall   0.9119 |    29.8 |   130.9 |   53.90    0.17
+      gaming  0.9438 |    29.7 |   135.5 |   48.97    0.01
+      stream  0.8676 |    29.9 |   127.8 |   50.66    0.12
+      web     0.9344 |    25.4 |   104.6 |   43.52    0.07
+    ROAM (28 runs; outage 0.09 s per UE-minute)
+      voice   0.9851 |    17.2 |    28.9 |   19.34    0.01
+      vcall   0.9270 |    29.7 |   132.1 |   52.19    0.04
+      gaming  0.9539 |    27.8 |   126.2 |   44.71    0.00
+      stream  0.8816 |    29.1 |   122.3 |   47.52    0.06
+      web     0.9456 |    25.2 |   105.4 |   42.63    0.04
+  urban, traffic full
+    A3_tuned (30 runs; outage 0.49 s per UE-minute)
+      voice   0.4806 |    30.5 |    83.6 |   42.24    3.38
+      vcall   0.4832 |    29.6 |    82.5 |   45.21    3.61
+      gaming  0.4515 |    31.1 |    90.5 |   45.20    4.12
+      stream  0.4650 |    30.2 |    86.0 |   44.52    3.63
+      web     0.4818 |    29.7 |    84.6 |   43.70    3.85
+    ROAM (30 runs; outage 0.33 s per UE-minute)
+      voice   0.4955 |    29.1 |    73.0 |   38.16    2.12
+      vcall   0.5058 |    28.1 |    71.9 |   37.30    1.94
+      gaming  0.4694 |    30.0 |    82.4 |   39.73    2.27
+      stream  0.4840 |    28.6 |    74.5 |   38.68    2.22
+      web     0.4921 |    28.4 |    75.6 |   39.48    1.98
+

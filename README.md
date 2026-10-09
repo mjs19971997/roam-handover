@@ -40,6 +40,7 @@ examples/quickstart.py      small A3-versus-ROAM demo
 data/synthetic/             three synthetic dense-urban layouts (20 / 40 / 60 cells)
 data/drive_tests/           place for the three measured drive-test traces (not distributed, see below)
 results/                    result files
+ns3/                        validation in ns-3 (5G-LENA): plan, per-run results, analysis scripts (see ns3/README.md)
 figures/                    figures
 docs/                       additional documentation
 run_all.sh                  the full pipeline
@@ -115,6 +116,26 @@ Test seeds 1–8, 40-cell layout, 300 users; every method tuned with the same 24
 | High-speed train | 9.85 | 4.56 | 54% | 1.66 | 1.77 | -5.0 |
 
 Over all five profiles ROAM removes 53% of the unnecessary handovers of tuned A3; the change in the mobility-failure rate is -0.7% (Wilcoxon p = 0.08). The cost is a lower delivered-to-demanded rate. The learned outcome table is better than a constant offset on the highway but not on the street grid or in the open area, and not at all when shadowing is drawn independently per user (`exp_tempo.csv`). The paper discusses these results and their limits.
+
+## Validation in ns-3
+
+The decision rule was also implemented in ns-3 (release 3.48) with the 5G-LENA NR module
+(v5.1) and compared with a tuned Event A3 rule on 7 gNBs with 20 terminals, under a plan
+written before the runs (`ns3/PLAN.md`). Rates are per UE-minute, 120 paired runs per
+environment.
+
+| Environment | Unnecessary HO, tuned A3 | Unnecessary HO, ROAM | Change | Failures, A3 | Failures, ROAM |
+|---|---|---|---|---|---|
+| Urban grid (3GPP TR 37.885, blockage by buildings) | 2.220 | 1.390 | -37.4% | 0.031 | 0.097 |
+| Open area (shadowing drawn per link) | 0.715 | 0.779 | +9.0% | 0.004 | 0.015 |
+
+In the urban grid the reduction is reproduced, at 37% against 53% in the simulator of this
+repository, and it comes with about three times the failure rate of A3; compared with the A3
+configuration that fails no more often, ROAM still has 0.62 ± 0.27 fewer unnecessary
+handovers per UE-minute. In the open area ROAM has no advantage. `ns3/README.md` describes the
+set-up, the protocol, the one change made to the NR module and all stages; the plan, the
+per-run results and the analysis scripts are in `ns3/`. The ns-3 scenario program is available
+from the authors on request.
 
 ## Experiment blocks
 
