@@ -13,10 +13,12 @@ and compared with a tuned Event A3 rule under a plan that was written before the
 | `results/<stage>/tuned_ns3.json` | the automatic selection of that stage, with the complete validation table |
 | `results/<stage>/report.txt`, `ns3_summary.json` | output of `analyze_ns3.py` for the stage |
 | `results/report_study.txt`, `report_study.json` | output of `analyze_study.py`; every ns-3 number of the paper is computed from the JSON file and the stage CSV files |
+| `scenario/ho-scenario.cc` | the ns-3 scenario program (C++, built against ns-3.48 and nr v5.1): both environments, the rules `a3` and `roam`, the traffic modes and the outcome classification |
+| `scenario/campaign.py`, `scenario/run_study.py` | the scripts that start the runs: one core campaign, and all stages of the study |
+| `scenario/build_scenario.sh`, `scenario/fix_srs.sh`, `scenario/setup/` | build of the program, the one change to the NR module, and the installation of the tool chain (see "Building and running the scenario") |
 
-The ns-3 scenario program (C++, built against ns-3.48 and nr v5.1) is not part of this
-repository; it is available from the authors on request. The per-handover trace files of the
-runs (about 1 GB) are not included either.
+The per-handover trace files of the runs (about 1 GB) are not included; the scenario program
+writes them again when a run is repeated.
 
 ## Tool chain
 
@@ -28,7 +30,7 @@ runs (about 1 GB) are not included either.
 * One change to the NR module. After a handover an uplink SRS can reach a gNB whose receiver
   is not idle, and `NrSpectrumPhy::StartRxSrs` (`contrib/nr/model/nr-spectrum-phy.cc`) then
   ends the simulation through one of five `NS_FATAL_ERROR` statements. These five statements
-  were replaced by a warning followed by a return, so that the one SRS is dropped and the run
+  were turned into warnings (`scenario/fix_srs.sh`), so that the one SRS is dropped and the run
   continues. A run that had finished before the change was repeated after it and gave
   identical metrics. No other library code was changed.
 * All runs of the stages were made on one machine (Intel Core i9-14900K), 10 to 28 runs in
@@ -179,10 +181,44 @@ Rates per UE-minute; ROAM against tuned A3.
   urban grid it had 17 % more failures. Differences in the service metrics were not tested,
   the traffic profiles are assumed and downlink only, and the aborted runs are missing.
 
+## Building and running the scenario
+
+The folder `scenario/` holds everything needed to repeat the runs on Windows with MSYS2
+(UCRT64 environment):
+
+| File | Purpose |
+|---|---|
+| `ho-scenario.cc` | the scenario program: two environments (`--scen`: `base` or `urban`), rules (`--rule`: `a3` or `roam`), traffic modes, outcome classification, one JSON line of metrics per run (`--PrintHelp` lists the options) |
+| `setup/1_tools.sh` | compiler and build tools (pacman packages) |
+| `setup/2_ns3.sh` | ns-3.48, the four upstream commits in `setup/patches/`, nr v5.1, the SRS change, the full build and this program |
+| `fix_srs.sh` | the one local change to nr v5.1: the five aborts in `NrSpectrumPhy::StartRxSrs` become "drop this SRS" |
+| `build_scenario.sh` | copies the source into `scratch/` of the ns-3 tree and builds that one program |
+| `campaign.py` | one core campaign: tuning (24 A3 and 24 ROAM configurations on four validation traces), automatic selection, test with seeds 1-10, fast-fading subset; `--scen urban` for the urban grid; resumable |
+| `run_study.py` | the complete study of `PLAN.md` (stages S1 to S5, test seeds 1-20), resumable; `--status`, `--list`, `--only`, `--smoke` |
+
+    cd scenario
+    bash setup/1_tools.sh               # in the "MSYS2 UCRT64" shell
+    bash setup/2_ns3.sh                 # long: downloads and builds ns-3 and nr
+    NS3_WORKERS=24 python run_study.py  # 5812 runs; python run_study.py --smoke for a short test
+
+The scripts expect ns-3 in `C:\cl\tools\ns3\ns-3-dev` and MSYS2 in `C:\cl\tools\msys64`
+(`2_ns3.sh` creates the first). For other locations change `NS3` and `DLL_PATH` at the top of
+`campaign.py` and the paths in the shell scripts (`build_scenario.sh` also reads `NS3_DIR`).
+
+New runs are written to stage folders inside `scenario/` (`campaign_urban/results.csv` and so
+on, per-attempt files in `res/`), with the same folder names as under `results/`; the runs of
+the paper in `results/` are not touched. At its end `run_study.py` calls
+`analyze_study.py --root scenario` on the new runs. Results from another machine or compiler
+build need not be bit-identical to the stored rows: ROAM runs can differ at exact ties of the
+best-server map (see "Tool chain"). An A3 test run of 180 s repeated on a second machine gave
+the stored row in every field except the run time and `map_diff`, a diagnostic count of such
+ties.
+
 ## Re-running the analysis
 
     python analyze_study.py              # all stages under results/
     python analyze_ns3.py results/campaign_urban
+    python analyze_study.py --root scenario   # runs made with scenario/run_study.py
 
 Both scripts need the Python standard library only. The shipped reports were produced without
 SciPy, with the built-in table of t quantiles; when SciPy is installed the scripts use its

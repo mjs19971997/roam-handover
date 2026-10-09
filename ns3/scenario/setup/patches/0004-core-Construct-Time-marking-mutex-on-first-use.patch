@@ -1,0 +1,86 @@
+From 72b905b1199c2f8525f3f5d5944ff7efa0347c02 Mon Sep 17 00:00:00 2001
+From: Gabriel Ferreira <gabrielcarvfer@gmail.com>
+Date: Sun, 27 Sep 2026 23:24:59 +0200
+Subject: [PATCH 4/4] core: Construct Time marking mutex on first use
+
+Time::StaticInit() runs from the static initializers of every compilation unit including nstime.h, which can precede the dynamic initialization of the namespace-scope std::mutex in time.cc on platforms where it is not constant-initialized (MinGW). Newer winpthreads rejects the zeroed mutex with EINVAL, so the resulting std::system_error aborted loading of the core library.
+---
+ src/core/model/time.cc | 27 ++++++++++++++++++++-------
+ 1 file changed, 20 insertions(+), 7 deletions(-)
+
+diff --git a/src/core/model/time.cc b/src/core/model/time.cc
+index 8d503f663..f9c204df8 100644
+--- a/src/core/model/time.cc
++++ b/src/core/model/time.cc
+@@ -76,8 +76,21 @@ const long double* UNIT_VALUE = InitUnitValue();
+ // static
+ Time::MarkedTimes* Time::g_markingTimes = nullptr;
+ 
+-/// The static mutex for critical sections around modification of Time::g_markingTimes.
+-static std::mutex g_markingMutex;
++/**
++ * Get the mutex for critical sections around modification of Time::g_markingTimes.
++ *
++ * Constructed on first use, since Time::StaticInit() runs during static
++ * initialization of other compilation units, and std::mutex is not
++ * constant-initialized on every platform (e.g. MinGW).
++ *
++ * @return The marking mutex.
++ */
++static std::mutex&
++MarkingMutex()
++{
++    static std::mutex mutex;
++    return mutex;
++}
+ 
+ // Function called to force static initialization
+ // static
+@@ -86,7 +99,7 @@ Time::StaticInit()
+ {
+     static bool firstTime = true;
+ 
+-    std::unique_lock lock{g_markingMutex};
++    std::unique_lock lock{MarkingMutex()};
+ 
+     if (firstTime)
+     {
+@@ -303,7 +316,7 @@ Time::ClearMarkedTimes()
+      * Instead, we copy this body into ConvertTimes.
+      */
+ 
+-    std::unique_lock lock{g_markingMutex};
++    std::unique_lock lock{MarkingMutex()};
+ 
+     NS_LOG_FUNCTION_NOARGS();
+     if (g_markingTimes)
+@@ -318,7 +331,7 @@ Time::ClearMarkedTimes()
+ void
+ Time::Mark(Time* const time)
+ {
+-    std::unique_lock lock{g_markingMutex};
++    std::unique_lock lock{MarkingMutex()};
+ 
+     NS_LOG_FUNCTION(time);
+     NS_ASSERT(time != nullptr);
+@@ -341,7 +354,7 @@ Time::Mark(Time* const time)
+ void
+ Time::Clear(Time* const time)
+ {
+-    std::unique_lock lock{g_markingMutex};
++    std::unique_lock lock{MarkingMutex()};
+ 
+     NS_LOG_FUNCTION(time);
+     NS_ASSERT(time != nullptr);
+@@ -369,7 +382,7 @@ Time::Clear(Time* const time)
+ void
+ Time::ConvertTimes(const Unit unit)
+ {
+-    std::unique_lock lock{g_markingMutex};
++    std::unique_lock lock{MarkingMutex()};
+ 
+     NS_LOG_FUNCTION_NOARGS();
+ 
+-- 
+2.56.0
+

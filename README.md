@@ -40,7 +40,7 @@ examples/quickstart.py      small A3-versus-ROAM demo
 data/synthetic/             three synthetic dense-urban layouts (20 / 40 / 60 cells)
 data/drive_tests/           place for the three measured drive-test traces (not distributed, see below)
 results/                    result files
-ns3/                        validation in ns-3 (5G-LENA): plan, per-run results, analysis scripts (see ns3/README.md)
+ns3/                        validation in ns-3 (5G-LENA): plan, scenario source and run scripts, per-run results, analysis scripts (see ns3/README.md)
 figures/                    figures
 docs/                       additional documentation
 run_all.sh                  the full pipeline
@@ -134,8 +134,8 @@ repository, and it comes with about three times the failure rate of A3; compared
 configuration that fails no more often, ROAM still has 0.62 ± 0.27 fewer unnecessary
 handovers per UE-minute. In the open area ROAM has no advantage. `ns3/README.md` describes the
 set-up, the protocol, the one change made to the NR module and all stages; the plan, the
-per-run results and the analysis scripts are in `ns3/`. The ns-3 scenario program is available
-from the authors on request.
+per-run results and the analysis scripts are in `ns3/`, and the ns-3 scenario program with its
+build and run scripts is in `ns3/scenario/`.
 
 ## Experiment blocks
 
