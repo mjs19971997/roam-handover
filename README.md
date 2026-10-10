@@ -34,6 +34,7 @@ experiments/
   analyze.py                statistics                          -> results/summary.json
   make_figures.py           result figures                      -> figures/fig_*.pdf (also .svg and .png)
   make_concept_figures.py   illustrative figures                -> figures/fig_*.pdf (also .svg and .png)
+  make_paper_figures.py     Figs. 1 to 5 of the paper           -> figures/fig_i_*.pdf (also .svg and .png)
   data_stats.py             statistics of the environments      -> results/data_stats.json
   plotstyle.py               matplotlib style
 examples/quickstart.py      small A3-versus-ROAM demo
@@ -80,10 +81,27 @@ python experiments/run_experiments.py profiles load density real ablation hht no
 python experiments/analyze.py                   # results/summary.json
 python experiments/make_figures.py              # figures/fig_*.pdf (also .svg and .png)
 python experiments/make_concept_figures.py      # figures/fig_*.pdf (also .svg and .png) (no results needed)
+python experiments/make_paper_figures.py        # figures/fig_i_*.pdf: Figs. 1 to 5 of the paper
+python ns3/make_ns3_figures.py                  # figures/fig_ns3_*.pdf: ns-3 configurations (supplemental file)
 python experiments/data_stats.py                # results/data_stats.json
 ```
 
 `bash run_all.sh` runs the pipeline from tuning to the result figures.
+
+Which script draws which figure:
+
+| Figure | File in `figures/` | Command | Input |
+|---|---|---|---|
+| Fig. 1 (outcomes, overview of ROAM) | `fig_i_scheme` | `python experiments/make_paper_figures.py scheme` | none (schematic) |
+| Fig. 2 (path overlap) | `fig_i_overlap` | `python experiments/make_paper_figures.py overlap` | none (schematic) |
+| Fig. 3 (tuning, main comparison) | `fig_i_results` | `python experiments/make_paper_figures.py results` | `results/summary.json` |
+| Fig. 4 (causes, load, outcome memory) | `fig_i_more` | `python experiments/make_paper_figures.py more` | `results/summary.json` |
+| Fig. 5 (ns-3: one pair of runs, all configurations) | `fig_i_ns3` | `python experiments/make_paper_figures.py ns3` | `ns3/fig5_runs/`, `ns3/results/` |
+| Figures of the supplemental file, system-level simulator | `fig_timeline`, `fig_hht`, `fig_pareto`, `fig_profiles`, `fig_causes`, `fig_service`, `fig_load`, `fig_curves` | `python experiments/make_concept_figures.py`, `python experiments/make_figures.py` | `results/summary.json` |
+| Figure of the supplemental file, ns-3 | `fig_ns3_fronts` | `python ns3/make_ns3_figures.py` | `ns3/results/` |
+
+The figure scripts need NumPy, SciPy and Matplotlib. `make_paper_figures.py ns3` also writes
+`figures/fig_i_ns3.json`, the job identifiers and counts of the two runs drawn in Fig. 5.
 
 - **Tuning** runs 24 configurations of each of the eight methods on validation traces (UDN-40,
   300 users, street-grid and highway profiles, seeds 101 and 102, 120 s). `select_configs.py`

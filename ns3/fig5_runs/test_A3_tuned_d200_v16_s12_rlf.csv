@@ -1,0 +1,9 @@
+time_s,ue,imsi,cell,cause,old_state,t310_elapsed_ms,ms_since_last_ho_ok,handled,x,y,in_window
+11.3500,19,29,7,HO_COMMAND_LATE,9,145,1595,late_attempt,-433.0,109.9,0
+41.7651,9,19,5,T310_EXPIRY,9,1000,4611,late_no_attempt,-433.0,78.2,0
+43.5500,9,19,1,HO_COMMAND_LATE,9,164,6395,late_attempt,-433.0,49.6,0
+72.1500,7,17,2,HO_COMMAND_LATE,9,152,3595,late_attempt,433.0,-140.4,1
+79.3500,11,21,1,HO_COMMAND_LATE,9,39,2395,late_attempt,433.0,195.2,1
+88.7500,7,17,2,HO_COMMAND_LATE,9,59,14195,late_attempt,433.0,125.2,1
+96.1500,7,17,2,HO_COMMAND_LATE,9,95,1395,late_attempt,433.0,243.6,1
+132.5500,3,13,2,HO_COMMAND_LATE,9,5,1995,late_attempt,433.0,-131.0,1

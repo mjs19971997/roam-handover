@@ -1,0 +1,45 @@
+{
+ "cell": {
+  "isd": 200,
+  "speed": 16
+ },
+ "seed": 12,
+ "seeds_in_cell": 20,
+ "offset_m": 17.0,
+ "runs": {
+  "A3_tuned": {
+   "job_id": "test_A3_tuned_d200_v16_s12",
+   "ue_min": 40.0,
+   "failures": 5,
+   "uho_pm": 3.4,
+   "fail_pm": 0.125,
+   "useful": 185,
+   "unnecessary": 136,
+   "early": 0,
+   "late": 5,
+   "t310": 0,
+   "censored": 6,
+   "attempts": 332,
+   "outer_attempts": 204,
+   "outer_unnecessary": 88,
+   "outer_failures": 5
+  },
+  "ROAM": {
+   "job_id": "test_ROAM_d200_v16_s12",
+   "ue_min": 40.0,
+   "failures": 12,
+   "uho_pm": 1.925,
+   "fail_pm": 0.3,
+   "useful": 124,
+   "unnecessary": 77,
+   "early": 3,
+   "late": 9,
+   "t310": 3,
+   "censored": 5,
+   "attempts": 218,
+   "outer_attempts": 137,
+   "outer_unnecessary": 46,
+   "outer_failures": 12
+  }
+ }
+}

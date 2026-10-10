@@ -15,9 +15,12 @@ and compared with a tuned Event A3 rule under a plan that was written before the
 | `results/report_study.txt`, `report_study.json` | output of `analyze_study.py`; every ns-3 number of the paper is computed from the JSON file and the stage CSV files |
 | `scenario/ho-scenario.cc` | the ns-3 scenario program (C++, built against ns-3.48 and nr v5.1): both environments, the rules `a3` and `roam`, the traffic modes and the outcome classification |
 | `scenario/campaign.py`, `scenario/run_study.py` | the scripts that start the runs: one core campaign, and all stages of the study |
+| `fig5_runs/<job>_att.csv`, `<job>_rlf.csv` | raw output of the two runs drawn in Fig. 5 of the paper (tuned A3 and ROAM, urban grid, 200 m, 16 m/s, seed 12): one row per handover command and one row per failure, with the position of the terminal |
+| `make_ns3_figures.py` | figure of the supplemental file: all 48 configurations with the two fronts, urban grid and open area (`figures/fig_ns3_fronts`); Fig. 5 is drawn by `experiments/make_paper_figures.py ns3` |
 | `scenario/build_scenario.sh`, `scenario/fix_srs.sh`, `scenario/setup/` | build of the program, the one change to the NR module, and the installation of the tool chain (see "Building and running the scenario") |
 
-The per-handover trace files of the runs (about 1 GB) are not included; the scenario program
+The per-handover trace files of the runs (about 1 GB) are not included, except those of the two
+runs of Fig. 5 (`fig5_runs/`); the scenario program
 writes them again when a run is repeated.
 
 ## Tool chain
